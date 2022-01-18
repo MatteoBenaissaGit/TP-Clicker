@@ -15,7 +15,7 @@ public class Buttons : MonoBehaviour
 
     int actualselect = 1;
 
-    private void Start()
+    private void Awake()
     {
         MoveTabButton(_tab1);
     }

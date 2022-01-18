@@ -6,25 +6,28 @@ using UnityEngine.UI;
 
 public class maingame : MonoBehaviour
 {
+    #region variables old monstre
     public List<MonsterInfos> Monsters;
 
     public List<Upgrade> Upgrades;
     public GameObject PrefabUpgradeUI;
     public GameObject ParentUpgrades;
     List<Upgrade> _unlockedUpgrades = new List<Upgrade>();
-    public RectTransform scrollview2;
-
+    public int _clicdammage = 1;
     int _currentMonster;
     public Monster Monster;
+    #endregion
+
+    public RectTransform scrollview2;
     public GameObject PrefabHitPoint;
-
     public RectTransform _scrollcontent;
-
     int i = 0;
 
     float _timerAutoDamage = 0f;
 
-    public int _clicdammage = 1;
+    public Bat1 bat1;
+    int Bat1_clicdamage = 1;
+    [SerializeField] Collider2D BAT1_ref;
 
     public static maingame Instance;
 
@@ -41,19 +44,12 @@ public class maingame : MonoBehaviour
     private void Start()
     {
         Monster.SetMonster(Monsters[_currentMonster]);
-
-        //boucle pour afficher les upgrades
-        /*foreach(var upgrade in Upgrades)
-        {
-            GameObject go = GameObject.Instantiate(PrefabUpgradeUI, ParentUpgrades.transform, false);
-            go.transform.localPosition = new Vector3(scrollview2.localPosition.x, (i * -80),0);
-            i++;
-            go.GetComponent<UpgradeUI>().Initialize(upgrade);
-        }*/
     }
 
     void Update()
     {
+        #region old monstre
+        /* MONSTRE
         if (Input.GetMouseButtonDown(0))
         {
             //récupère la position du clic
@@ -64,11 +60,9 @@ public class maingame : MonoBehaviour
             {
                 Hit(_clicdammage, Monster);
             }
-
             //si le monstre n'a plus de points de vie -> change le monstre
             NextMonsterCheck();
         }
-
         //attaque auto
         _timerAutoDamage += Time.deltaTime;
         //update toute les secondes
@@ -80,8 +74,19 @@ public class maingame : MonoBehaviour
             {
                 Hit(upgrade.DPS, Monster);
             }
+        }*/
+        #endregion
+        if (Input.GetMouseButtonDown(0))
+        {
+            //récupère la position du clic
+            Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
+            //action si on clic sur le monstre
+            if (hit.collider == BAT1_ref)
+            {
+                bat1.Hit(Bat1_clicdamage);
+            }
         }
-
     }
 
     public void NextMonsterCheck()
