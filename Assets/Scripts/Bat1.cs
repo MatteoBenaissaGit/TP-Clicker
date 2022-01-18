@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Bat1 : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Bat1 : MonoBehaviour
 
     public TextMeshProUGUI bat1_price_txt;
     public TextMeshProUGUI bat1_name;
+    public TextMeshProUGUI bat1_update_description;
+    public Image bat1_update_sprite;
 
     private void Start()
     {
@@ -62,6 +65,10 @@ public class Bat1 : MonoBehaviour
         bat1_price_txt.text = _bat1upgrade.Price.ToString();
         //change le nom
         bat1_name.text = _bat1upgrade.Name;
+        //change la description de l'update
+        bat1_update_description.text = _bat1upgrade.Description;
+        //change le sprite de l'icone dans l'update
+        bat1_update_sprite.sprite = _bat1upgrade.SpriteUpdate;
     }
 
 }

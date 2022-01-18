@@ -1839,12 +1839,18 @@ MonoBehaviour:
   Bat1_Upgrades:
   - Name: "Carri\xE8re d\xE9truite"
     Sprite: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     Price: 100
+    Description: "R\xE9habiliter la carri\xE8re  \n\n-> D\xE9blocage de la carri\xE8re "
   - Name: "Carri\xE8re niv1."
     Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
     Price: 500
+    Description: "Agrandissement de la carrir\xE8e  \n\n+ 1 habitant par seconde"
   bat1_price_txt: {fileID: 30258491}
   bat1_name: {fileID: 203702980}
+  bat1_update_description: {fileID: 930314994}
+  bat1_update_sprite: {fileID: 1105521847}
 --- !u!61 &717452276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3163,7 +3169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
