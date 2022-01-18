@@ -24,6 +24,8 @@ public class Bat1 : MonoBehaviour
 
     public int Bat1_clicdamage = 1;
 
+    public GameObject PrefabClicBrick;
+
     private void Start()
     {
         Bat1Update(Bat1_Upgrades[level]);
@@ -52,26 +54,25 @@ public class Bat1 : MonoBehaviour
         }
     }
 
-    public void Hit()
+    public void Hit(Transform Hit_Pos)
     {
-        //showdamage
-        if (level > 0)
-        {
-            maingame.ShowDamage(Bat1_Pos, Bat1_clicdamage);
-        }
-        //si la carrière n'est pas débloquée
-        if (level == 0)
-        {
-            Visual.transform.DOComplete();
-            Visual.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0), 0.5f);
-        }
-        //si elle est débloquée
+        //carrière débloquée
         if (level > 0)
         {
             //animation de hit sur le bat
             Visual.transform.DOComplete();
             Visual.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.3f);
+            //valeurs
             R_and_P.AddBrick(Bat1_clicdamage);
+            //animation de clic
+            ShowClickBrick(Hit_Pos.transform);
+        }
+        //si la carrière n'est pas débloquée
+        if (level == 0)
+        {
+            //animation de hit sur le bat
+            Visual.transform.DOComplete();
+            Visual.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0), 0.5f);
         }
     }
 
@@ -96,4 +97,16 @@ public class Bat1 : MonoBehaviour
         //ajoute graphiquement un ouvrier
     }
 
+    public void ShowClickBrick(Transform Hit_Pos) //anim du clic 
+    {
+        //affiche l'animation
+        for (int i = 0; i< Bat1_clicdamage; i++)
+        {
+            GameObject go = GameObject.Instantiate(PrefabClicBrick, Hit_Pos, false);
+            go.transform.localPosition = Hit_Pos.localPosition;
+            go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f,5f), Hit_Pos.localPosition.y-2f, Hit_Pos.localPosition.z), Random.Range(2f,4f), 1, 0.9f);
+            //go.GetComponent<SpriteRenderer>().DOFade(0, 0.8f);
+            GameObject.Destroy(go, 0.8f);
+        }
+    }
 }

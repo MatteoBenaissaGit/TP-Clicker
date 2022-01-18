@@ -61,12 +61,12 @@ public class Buttons : MonoBehaviour
     public void MoveTabButton(RectTransform tab)
     {
         tab.transform.DOComplete();
-        tab.transform.DOMove(new Vector3(tab.transform.position.x + 1f , tab.transform.position.y, tab.transform.position.z), 0.5f, false);
+        tab.transform.DOMove(new Vector3(tab.transform.position.x + 0.3f , tab.transform.position.y, tab.transform.position.z), 0.5f, false);
     }
     public void RetractTabButton(RectTransform tab)
     {
         tab.transform.DOComplete();
-        tab.transform.DOMove(new Vector3(tab.transform.position.x - 1f, tab.transform.position.y, tab.transform.position.z), 0.5f, false);
+        tab.transform.DOMove(new Vector3(tab.transform.position.x - 0.3f, tab.transform.position.y, tab.transform.position.z), 0.5f, false);
     }
     public void CheckRetract()
     {

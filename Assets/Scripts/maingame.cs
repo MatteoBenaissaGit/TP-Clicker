@@ -84,7 +84,7 @@ public class maingame : MonoBehaviour
             //action si on clic sur le monstre
             if (hit.collider == BAT1_ref)
             {
-                bat1.Hit();
+                bat1.Hit(hit.transform);
             }
         }
     }
@@ -98,7 +98,7 @@ public class maingame : MonoBehaviour
             Monster.SetMonster(Monsters[_currentMonster]);
         }
     }
-
+    #region fonction hit monstre
     public void Hit(int damage, Monster monster)
     {
         //met les dégats au monstre via sa fonction Hit à lui
@@ -109,18 +109,19 @@ public class maingame : MonoBehaviour
         go.transform.localPosition = UnityEngine.Random.insideUnitCircle * 180;
         go.transform.localPosition = monster.transform.localPosition;
         go.transform.DOLocalMoveY(8, 0.8f);
-        go.GetComponent<Text>().DOFade(0, 0.8f);
+        //go.GetComponent<TextMeshProUGUI>().DOFade(0, 0.8f);
         GameObject.Destroy(go, 0.8f);
         //si le monstre n'a plus de points de vie -> change le monstre
         NextMonsterCheck();
     }
+    #endregion
 
     public void AddUpgrade(Upgrade upgrade)
     {
         _unlockedUpgrades.Add(upgrade);
     }
 
-    public void ShowDamage(Transform Pos, int value)
+    public void ShowBrick(Transform Pos, int value)
     {
         //affiche mes dégats
         GameObject go = GameObject.Instantiate(PrefabHitPoint, Pos, false);
@@ -128,7 +129,7 @@ public class maingame : MonoBehaviour
         go.transform.localPosition = Pos.localPosition;
         go.transform.localPosition = UnityEngine.Random.insideUnitCircle * 1f;
         go.transform.DOLocalMoveY(8, 0.8f);
-        go.GetComponent<Text>().DOFade(0, 0.8f);
+        //go.GetComponent<TextMeshProUGUI.>().DOFade(0, 0.8f);
         GameObject.Destroy(go, 0.8f);
     }
 
