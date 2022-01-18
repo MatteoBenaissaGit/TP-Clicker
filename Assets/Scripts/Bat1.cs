@@ -45,6 +45,10 @@ public class Bat1 : MonoBehaviour
             {
                 Bat1_clicdamage += 1;
             }
+            if (level == 4) //upgrade du niv4
+            {
+                R_and_P.people_augmentation += 3;
+            }
         }
     }
 

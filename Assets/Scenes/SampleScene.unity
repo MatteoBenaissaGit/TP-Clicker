@@ -1860,8 +1860,13 @@ MonoBehaviour:
   - Name: "Carri\xE8re niv3."
     Sprite: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
-    Price: 100
-    Description: xxx
+    Price: 150
+    Description: "R\xE9novation des vestiaires\n\n+ 3 habitant par seconde"
+  - Name: "Carri\xE8re niv4."
+    Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
+    Price: 300
+    Description: Null
   bat1_price_txt: {fileID: 30258491}
   bat1_name: {fileID: 203702980}
   bat1_update_description: {fileID: 930314994}
