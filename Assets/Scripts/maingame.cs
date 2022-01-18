@@ -49,7 +49,7 @@ public class maingame : MonoBehaviour
     void Update()
     {
         #region old monstre
-        /* MONSTRE
+        /* 
         if (Input.GetMouseButtonDown(0))
         {
             //récupère la position du clic

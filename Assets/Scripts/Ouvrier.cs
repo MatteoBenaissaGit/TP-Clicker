@@ -24,10 +24,10 @@ public class Ouvrier : MonoBehaviour
 
     public void ButtonOuvrierUpdate(OuvrierInfos _OuvrierInfos)
     {
-         //change le prix
-         ouvrier_text_price.text = _OuvrierInfos.Price.ToString();
-         value_to_upgrade = _OuvrierInfos.Price;
-         bat1.AddOuvrier();
+        //change le prix
+        value_to_upgrade = value_to_upgrade * 2;
+        ouvrier_text_price.text = value_to_upgrade.ToString();
+        bat1.AddOuvrier();
     }
 
 }

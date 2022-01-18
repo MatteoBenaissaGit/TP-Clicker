@@ -103,8 +103,8 @@ public class Bat1 : MonoBehaviour
         for (int i = 0; i< Bat1_clicdamage; i++)
         {
             GameObject go = GameObject.Instantiate(PrefabClicBrick, Hit_Pos, false);
-            go.transform.localPosition = Hit_Pos.localPosition;
-            go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f,5f), Hit_Pos.localPosition.y-2f, Hit_Pos.localPosition.z), Random.Range(2f,4f), 1, 0.9f);
+            go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x, Hit_Pos.localPosition.y, 1);
+            go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f,5f), Hit_Pos.localPosition.y-2f, 1), Random.Range(2f,4f), 1, 0.9f);
             //go.GetComponent<SpriteRenderer>().DOFade(0, 0.8f);
             GameObject.Destroy(go, 0.8f);
         }

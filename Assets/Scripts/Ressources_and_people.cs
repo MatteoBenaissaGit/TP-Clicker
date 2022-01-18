@@ -11,6 +11,8 @@ public class Ressources_and_people : MonoBehaviour
 
     public TextMeshProUGUI brick;
     public TextMeshProUGUI people;
+    public TextMeshProUGUI people_per_second;
+    public TextMeshProUGUI brick_per_second;
     public int brick_number = 0;
     public int people_number = 0;
     [HideInInspector] public int brick_augmentation = 0;
@@ -65,6 +67,9 @@ public class Ressources_and_people : MonoBehaviour
         //affichage des valeurs
         brick.text = brick_shown.ToString();
         people.text = people_shown.ToString();
+        //valeurs par seconde
+        brick_per_second.text = "+ " + brick_augmentation.ToString() + "/s";
+        people_per_second.text = "+ " + people_augmentation.ToString() + "/s";
     }
 
     public void AddBrick(int number)
