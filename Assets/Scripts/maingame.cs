@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using TMPro;
 
 public class maingame : MonoBehaviour
 {
@@ -26,7 +27,6 @@ public class maingame : MonoBehaviour
     float _timerAutoDamage = 0f;
 
     public Bat1 bat1;
-    int Bat1_clicdamage = 1;
     [SerializeField] Collider2D BAT1_ref;
 
     public static maingame Instance;
@@ -84,7 +84,7 @@ public class maingame : MonoBehaviour
             //action si on clic sur le monstre
             if (hit.collider == BAT1_ref)
             {
-                bat1.Hit(Bat1_clicdamage);
+                bat1.Hit();
             }
         }
     }
@@ -118,6 +118,18 @@ public class maingame : MonoBehaviour
     public void AddUpgrade(Upgrade upgrade)
     {
         _unlockedUpgrades.Add(upgrade);
+    }
+
+    public void ShowDamage(Transform Pos, int value)
+    {
+        //affiche mes dégats
+        GameObject go = GameObject.Instantiate(PrefabHitPoint, Pos, false);
+        go.GetComponent<TextMeshProUGUI>().text = value.ToString();
+        go.transform.localPosition = Pos.localPosition;
+        go.transform.localPosition = UnityEngine.Random.insideUnitCircle * 1f;
+        go.transform.DOLocalMoveY(8, 0.8f);
+        go.GetComponent<Text>().DOFade(0, 0.8f);
+        GameObject.Destroy(go, 0.8f);
     }
 
 }

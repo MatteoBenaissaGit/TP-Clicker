@@ -649,7 +649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.578, y: 2.3376}
+  m_AnchoredPosition: {x: 0.22199011, y: 2.3376}
   m_SizeDelta: {x: 4.5755, y: 0.8516}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203702980
@@ -1811,7 +1811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717452273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.33, y: -0.63, z: 0}
+  m_LocalPosition: {x: -0.17, y: -0.63, z: 0}
   m_LocalScale: {x: 0.9847, y: 0.9847, z: 0.9847}
   m_Children:
   - {fileID: 1423025955}
@@ -1832,6 +1832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910914f563bfac347ad5f3008e9a062a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maingame: {fileID: 1123934617}
+  Bat1_Pos: {fileID: 717452274}
   Visual: {fileID: 1423025954}
   R_and_P: {fileID: 1123934619}
   level: 0
@@ -1845,12 +1847,26 @@ MonoBehaviour:
   - Name: "Carri\xE8re niv1."
     Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
-    Price: 500
+    Price: 20
     Description: "Agrandissement de la carrir\xE8e  \n\n+ 1 habitant par seconde"
+  - Name: "Carri\xE8re niv2."
+    Sprite: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
+    Price: 50
+    Description: 'Ouvetrure d''une cantine
+
+
+      + 1 brique/clic'
+  - Name: "Carri\xE8re niv3."
+    Sprite: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
+    Price: 100
+    Description: xxx
   bat1_price_txt: {fileID: 30258491}
   bat1_name: {fileID: 203702980}
   bat1_update_description: {fileID: 930314994}
   bat1_update_sprite: {fileID: 1105521847}
+  Bat1_clicdamage: 1
 --- !u!61 &717452276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1864,7 +1880,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.66, y: 0}
+  m_Offset: {x: 0.06, y: -0.06}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0.10001743, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2010,7 +2026,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 732791354}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1999326274}
+        m_TargetAssemblyTypeName: Ouvrier, Assembly-CSharp
+        m_MethodName: OuvrierNextUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &732791354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2149,7 +2177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.56, y: 2.33}
+  m_AnchoredPosition: {x: 0.24, y: 2.33}
   m_SizeDelta: {x: 76.4183, y: 14.775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811198692
@@ -2226,7 +2254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1207, y: 0}
+  m_AnchoredPosition: {x: -1163, y: 4}
   m_SizeDelta: {x: 425.53, y: 279.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &918729018
@@ -2785,7 +2813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1207.0001, y: 330.28003}
+  m_AnchoredPosition: {x: -1163.0001, y: 334.28003}
   m_SizeDelta: {x: 425.53, y: 279.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1042499880
@@ -3389,10 +3417,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f0f377c94758b459e36fc0875d6801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maingame: {fileID: 1123934617}
+  Bat1_Pos: {fileID: 717452274}
   brick: {fileID: 1946039667}
   people: {fileID: 1727152116}
   brick_number: 100
   people_number: 0
+  brick_augmentation: 0
+  people_augmentation: 0
 --- !u!1 &1149796931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4385,7 +4417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423025954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.66, y: -0.01, z: 0}
+  m_LocalPosition: {x: 0.16, y: -0.01, z: 0}
   m_LocalScale: {x: 5.1278906, y: 5.1278906, z: 5.1278906}
   m_Children: []
   m_Father: {fileID: 717452274}
@@ -5158,7 +5190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1207, y: -321}
+  m_AnchoredPosition: {x: -1163, y: -317}
   m_SizeDelta: {x: 425.53, y: 279.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1537573599
@@ -5219,11 +5251,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547172569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.001778, y: 280, z: -12499.734}
-  m_LocalScale: {x: 17.888508, y: 17.305187, z: 19.444033}
+  m_LocalPosition: {x: -36.06, y: 280, z: -1}
+  m_LocalScale: {x: 17.88851, y: 17.88851, z: 0}
   m_Children: []
-  m_Father: {fileID: 1814083331}
-  m_RootOrder: 1
+  m_Father: {fileID: 1999326273}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1547172571
 SpriteRenderer:
@@ -5265,7 +5297,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b64c8bd9319d5b74f88ec4e9d2c97275, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 773244132053a8a4c9a114296feaa87f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5987,7 +6019,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1999326273}
-  - {fileID: 1547172570}
   m_Father: {fileID: 1430878666}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6347,6 +6378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999326273}
+  - component: {fileID: 1999326274}
   m_Layer: 5
   m_Name: Upgrade1
   m_TagString: Untagged
@@ -6369,6 +6401,7 @@ RectTransform:
   - {fileID: 1329514030}
   - {fileID: 732791352}
   - {fileID: 245293126}
+  - {fileID: 1547172570}
   m_Father: {fileID: 1814083331}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6377,6 +6410,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1999326274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999326272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd6642047c535c45b9b8fead4f44186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OuvrierInfos:
+  - Price: 10
+  - Price: 20
+  - Price: 30
+  - Price: 50
+  - Price: 80
+  - Price: 150
+  - Price: 200
+  - Price: 300
+  - Price: 500
+  - Price: 1000
+  ouvrier_text_price: {fileID: 1264861141}
+  R_and_P: {fileID: 1123934619}
+  bat1: {fileID: 717452275}
+  value_to_upgrade: 10
 --- !u!1 &2115350500
 GameObject:
   m_ObjectHideFlags: 0
