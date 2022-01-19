@@ -12,6 +12,13 @@ public class Ouvrier : MonoBehaviour
     public int value_to_upgrade;
     int level = 0;
 
+    public GameObject Blocage;
+
+    public void UnlockOuvrier()
+    {
+        Blocage.SetActive(false);
+    }
+
     public void OuvrierNextUpdate()
     {
         if (R_and_P.brick_number >= value_to_upgrade)

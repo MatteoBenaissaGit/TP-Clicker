@@ -26,6 +26,8 @@ public class Bat1 : MonoBehaviour
 
     public GameObject PrefabClicBrick;
 
+    public Ouvrier ouvrier;
+
     private void Start()
     {
         Bat1Update(Bat1_Upgrades[level]);
@@ -39,6 +41,10 @@ public class Bat1 : MonoBehaviour
             R_and_P.brick_number -= value_to_upgrade;
             level++;
             Bat1Update(Bat1_Upgrades[level]);
+            if (level == 1) //upgrade du niv2
+            {
+                ouvrier.UnlockOuvrier();
+            }
             if (level == 2) //upgrade du niv2
             {
                 R_and_P.people_augmentation += 1;
