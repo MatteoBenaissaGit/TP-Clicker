@@ -33,6 +33,11 @@ public class Bat1 : MonoBehaviour
         Bat1Update(Bat1_Upgrades[level]);
     }
 
+    void Update()
+    {
+        maingame.CheckCanBuy(bat1_price_txt, R_and_P.brick_number, value_to_upgrade);
+    }
+
     //upgrading
     public void UpgradeNextLevel()
     {

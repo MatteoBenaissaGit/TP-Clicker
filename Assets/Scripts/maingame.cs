@@ -50,4 +50,20 @@ public class maingame : MonoBehaviour
         GameObject.Destroy(go, 0.8f);
     }
 
+    public void CheckCanBuy(TextMeshProUGUI _text, int value_number, int value_neaded) //text en rouge quand pas possible d'achcheter
+    {
+        if (value_number >= value_neaded)
+        {
+            Color tmp = _text.color;
+            tmp.r = 0f;
+            _text.color = tmp;
+        }
+        else
+        {
+            Color tmp = _text.color;
+            tmp.r = 255f;
+            _text.color = tmp;
+        }
+    }
+
 }

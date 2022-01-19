@@ -11,8 +11,14 @@ public class Ouvrier : MonoBehaviour
     public Bat1 bat1;
     public int value_to_upgrade;
     int level = 0;
+    public maingame maingame;
 
     public GameObject Blocage;
+
+    void Update()
+    {
+        maingame.CheckCanBuy(ouvrier_text_price, R_and_P.brick_number, value_to_upgrade);
+    }
 
     public void UnlockOuvrier()
     {
@@ -36,5 +42,7 @@ public class Ouvrier : MonoBehaviour
         ouvrier_text_price.text = value_to_upgrade.ToString();
         bat1.AddOuvrier();
     }
+
+    
 
 }

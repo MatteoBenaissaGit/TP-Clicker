@@ -6922,6 +6922,7 @@ MonoBehaviour:
   R_and_P: {fileID: 1123934619}
   bat1: {fileID: 717452275}
   value_to_upgrade: 10
+  maingame: {fileID: 1123934617}
   Blocage: {fileID: 1033034789}
 --- !u!1 &2087067413
 GameObject:
