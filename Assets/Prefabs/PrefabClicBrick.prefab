@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5821447629271828824}
   - component: {fileID: 1772365954795567072}
   - component: {fileID: 6654010044514427263}
+  - component: {fileID: 6669923476803795698}
   m_Layer: 0
   m_Name: PrefabClicBrick
   m_TagString: Untagged
@@ -96,3 +97,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6669923476803795698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083289521146081246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0737469d441f8da4d89e2aa9c6fec1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 6654010044514427263}
