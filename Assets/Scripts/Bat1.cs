@@ -15,6 +15,7 @@ public class Bat1 : MonoBehaviour
     public GameObject PrefabClicBrick;
     public Ouvrier ouvrier;
     public ScriptArrowTuto arrowtuto;
+    public Dialogue_Box _Dialog_box;
     #endregion
 
     public int level = 0; //niveau du bat
@@ -54,6 +55,10 @@ public class Bat1 : MonoBehaviour
                 arrowtuto.posarrow = 2; //modifie le placage de reference de la fleche
                 ouvrier.UnlockOuvrier(); //debloque l'ouvrier
                 arrowtuto.CheckPosArrow1(); //change la place de la fleche
+                //dialog
+                _Dialog_box.dialog_number++;
+                _Dialog_box.DialogUpdateCall();
+                _Dialog_box.BumpBox();
             }
             if (level == 2) //upgrade du niv2
             {
@@ -77,19 +82,24 @@ public class Bat1 : MonoBehaviour
 
     public void Hit(Transform Hit_Pos)
     {
+        //tuto dialog
+        if (arrowtuto.bat1_buyed == true && R_and_P.brick_number == 9 && R_and_P.brick_augmentation == 0) //si on a assez pour acheter l'ouvrier
+        {
+            //dialog
+            _Dialog_box.dialog_number++;
+            _Dialog_box.DialogUpdateCall();
+            _Dialog_box.BumpBox();
+            //arrow
+            arrowtuto.bat1_used = true; //variable pour indiquer a la fleche que le bat est acheter
+            arrowtuto.posarrow = 4; //modifie le placage de reference de la fleche
+            arrowtuto.CheckPosArrow1(); //change la place de la fleche    
+        }
         if (level > 0) //si carrière débloquée
         {
             Visual.transform.DOComplete(); //complete l'animation précédente pour éviter bug
             Visual.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.3f); //animation de hit sur le bat
             R_and_P.AddBrick(Bat1_clicdamage); //valeurs  
             ShowClickBrick(Hit_Pos.transform); //animation de clic
-            //arrow
-            if (R_and_P.brick_shown >= 10) //si on a assez pour acheter l'ouvrier
-            {
-                arrowtuto.bat1_used = true; //variable pour indiquer a la fleche que le bat est acheter
-                arrowtuto.posarrow = 4; //modifie le placage de reference de la fleche
-                arrowtuto.CheckPosArrow1(); //change la place de la fleche
-            }   
         }
         if (level == 0) //si la carrière n'est pas débloquée
         {
@@ -111,6 +121,14 @@ public class Bat1 : MonoBehaviour
 
     public void AddOuvrier() //ajoute un ouvrier
     {
+        //dialog
+        if (R_and_P.brick_augmentation == 0) //si on a assez pour acheter l'ouvrier
+        {
+            _Dialog_box.dialog_number++;
+            _Dialog_box.DialogUpdateCall();
+            _Dialog_box.BumpBox();
+            StartCoroutine(_Dialog_box.CloseAfterTimer(3.5f));
+        }
         R_and_P.brick_augmentation += 1; //ajoute un ouvrier
         // -> possiblité d'ajouter graphiquement un ouvrier ici
     }
