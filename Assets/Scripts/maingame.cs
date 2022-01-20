@@ -7,6 +7,8 @@ using TMPro;
 
 public class maingame : MonoBehaviour
 {
+    public GameObject PrefabArrowTuto;
+    [HideInInspector] public bool arrow1 = true;
 
     public RectTransform scrollview2;
     public GameObject PrefabHitPoint;
@@ -23,6 +25,11 @@ public class maingame : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        PrefabArrowTuto.SetActive(true);
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -35,6 +42,11 @@ public class maingame : MonoBehaviour
             {
                 bat1.Hit(hit.transform);
             }
+        }
+        //check arrows
+        if (arrow1 == false)
+        {
+            PrefabArrowTuto.SetActive(false);
         }
     }
 

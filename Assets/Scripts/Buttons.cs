@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class Buttons : MonoBehaviour
 {
+    public ScriptArrowTuto _arrow1;
+
     [SerializeField] GameObject tab1;
     [SerializeField] GameObject tab2;
     [SerializeField] GameObject tab3;
@@ -26,17 +28,40 @@ public class Buttons : MonoBehaviour
         tab2.SetActive(false);
         tab3.SetActive(false);
 
+        if (_arrow1.bat1_buyed == false)
+        {
+            _arrow1.posarrow = 0;
+            _arrow1.CheckPosArrow1();
+        }
+        else
+        {
+            _arrow1.posarrow = 3;
+            _arrow1.CheckPosArrow1();
+        }
+
         if (actualselect != 1)
         {
             MoveTabButton(_tab1);
             CheckRetract();
             actualselect = 1;
-        }
+        } 
+        
     }
     public void Click2() //active l'écran 2 
     {
         tab2.SetActive(true);
         tab3.SetActive(false);
+
+        if (_arrow1.bat1_buyed == false)
+        {
+            _arrow1.posarrow = 0;
+            _arrow1.CheckPosArrow1();
+        }
+        else
+        {
+            _arrow1.posarrow = 2;
+            _arrow1.CheckPosArrow1();
+        }
 
         if (actualselect != 2)
         {
@@ -56,6 +81,17 @@ public class Buttons : MonoBehaviour
             CheckRetract();
             actualselect = 3;
         }
+        if (_arrow1.bat1_buyed == false)
+        {
+            _arrow1.posarrow = 1;
+            _arrow1.CheckPosArrow1();
+        }
+        else
+        {
+            _arrow1.posarrow = 2;
+            _arrow1.CheckPosArrow1();
+        }
+
     }
 
     public void MoveTabButton(RectTransform tab)

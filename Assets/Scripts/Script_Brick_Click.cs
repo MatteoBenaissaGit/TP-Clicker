@@ -17,6 +17,6 @@ public class Script_Brick_Click : MonoBehaviour
         Color tmp = _prefab.color;
         tmp.a = color_value;
         _prefab.color = tmp;
-        color_value -= 0.003f;
+        color_value = color_value * 0.99f;
     }
 }
