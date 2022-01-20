@@ -5,44 +5,46 @@ using UnityEngine;
 
 public class Ouvrier : MonoBehaviour
 {
-    [SerializeField] List<OuvrierInfos> OuvrierInfos;
-    public TextMeshProUGUI ouvrier_text_price;
+    #region referencement objets/script
     public Ressources_and_people R_and_P;
-    public Bat1 bat1;
-    public int value_to_upgrade;
-    int level = 0;
     public maingame maingame;
-
     public GameObject Blocage;
+    public Bat1 bat1;
+    #endregion
 
+    [SerializeField] List<OuvrierInfos> OuvrierInfos; //liste valeurs pour ouvrier upgrade
+    public TextMeshProUGUI ouvrier_text_price; //texte du prix
+    
+    public int value_to_upgrade; //prix 
+    int level = 0; //niveau de l'ouvrier
+    
     void Update()
     {
-        maingame.CheckCanBuy(ouvrier_text_price, R_and_P.brick_number, value_to_upgrade);
+        maingame.CheckCanBuy(ouvrier_text_price, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
     }
 
-    public void UnlockOuvrier()
+    public void UnlockOuvrier() //debloque l'ouvrier
     {
         Blocage.SetActive(false);
     }
 
-    public void OuvrierNextUpdate()
+    public void OuvrierNextUpdate() //passe à l'upgrade d'ouvrier suivante
     {
-        if (R_and_P.brick_number >= value_to_upgrade)
+        if (R_and_P.brick_number >= value_to_upgrade) //si achetable
         {
-            R_and_P.brick_number -= value_to_upgrade;
-            level++;
-            ButtonOuvrierUpdate(OuvrierInfos[level]);
+            maingame.arrow1 = false; //supprime la fleche
+            R_and_P.brick_number -= value_to_upgrade; //retire les briques
+            level++; // +1 niveau
+            ButtonOuvrierUpdate(OuvrierInfos[level]); //fonction pour update l'affichage
         }  
     }
 
-    public void ButtonOuvrierUpdate(OuvrierInfos _OuvrierInfos)
+    public void ButtonOuvrierUpdate(OuvrierInfos _OuvrierInfos) //modifie l'affichae de l'ouvrier
     {
         //change le prix
         value_to_upgrade = value_to_upgrade * 2;
         ouvrier_text_price.text = value_to_upgrade.ToString();
-        bat1.AddOuvrier();
-    }
-
-    
+        bat1.AddOuvrier(); //ajoute un ouvrier
+    }  
 
 }

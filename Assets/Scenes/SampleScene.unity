@@ -755,7 +755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Carri\xE8re (d\xE9truite)"
+  m_text: "Briqueterie (d\xE9truite)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -782,8 +782,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.54
-  m_fontSizeBase: 0.54
+  m_fontSize: 0.48
+  m_fontSizeBase: 0.48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2037,19 +2037,22 @@ MonoBehaviour:
   Bat1_Pos: {fileID: 717452274}
   Visual: {fileID: 1423025954}
   R_and_P: {fileID: 1123934619}
+  PrefabClicBrick: {fileID: 5083289521146081246, guid: c34d99b9cdef06a4bb0131eb8d9ca564, type: 3}
+  ouvrier: {fileID: 1999326274}
+  arrowtuto: {fileID: 2048723459}
   level: 0
   value_to_upgrade: 100
   Bat1_Upgrades:
-  - Name: "Carri\xE8re (d\xE9truite)"
+  - Name: "Briqueterie (d\xE9truite)"
     Sprite: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     Price: 100
     Description: "R\xE9habiliter la carri\xE8re  \n\n-> D\xE9blocage de la carri\xE8re "
-  - Name: "Carri\xE8re niv1."
+  - Name: Briqueterie niv1.
     Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
     Price: 20
-    Description: "Agrandissement de la carrir\xE8e  \n\n+ 1 habitant par seconde"
+    Description: "Agrandissement de la Briqueterie  \n\n+ 1 habitant par seconde"
   - Name: "Carri\xE8re niv2."
     Sprite: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
@@ -2058,12 +2061,12 @@ MonoBehaviour:
 
 
       + 1 brique/clic'
-  - Name: "Carri\xE8re niv3."
+  - Name: Briqueterie niv3.
     Sprite: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     Price: 150
     Description: "R\xE9novation des vestiaires\n\n+ 3 habitant par seconde"
-  - Name: "Carri\xE8re niv4."
+  - Name: Briqueterie niv4.
     Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
     Price: 300
@@ -2073,9 +2076,6 @@ MonoBehaviour:
   bat1_update_description: {fileID: 930314994}
   bat1_update_sprite: {fileID: 1105521847}
   Bat1_clicdamage: 1
-  PrefabClicBrick: {fileID: 5083289521146081246, guid: c34d99b9cdef06a4bb0131eb8d9ca564, type: 3}
-  ouvrier: {fileID: 1999326274}
-  arrowtuto: {fileID: 2048723459}
 --- !u!61 &717452276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3865,15 +3865,16 @@ MonoBehaviour:
   maingame: {fileID: 1123934617}
   Bat1_Pos: {fileID: 717452274}
   brick: {fileID: 1946039667}
-  people: {fileID: 1727152116}
-  people_per_second: {fileID: 874031833}
   brick_per_second: {fileID: 2144385779}
   brick_number: 100
-  people_number: 0
   brick_augmentation: 0
-  people_augmentation: 0
-  brick_number_temp: 0
   brick_shown: 0
+  brick_number_temp: 0
+  people: {fileID: 1727152116}
+  people_per_second: {fileID: 874031833}
+  people_number: 0
+  people_augmentation: 0
+  people_shown: 0
 --- !u!1 &1149796931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4102,6 +4103,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166806660}
   m_CullTransparentMesh: 1
+--- !u!1 &1169534809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1169534810}
+  m_Layer: 5
+  m_Name: ArrowPos1_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1169534810
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169534809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1998241466}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.39, y: -1.79}
+  m_SizeDelta: {x: 2.0875, y: 2.0144}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1190841666
 GameObject:
   m_ObjectHideFlags: 0
@@ -5456,6 +5492,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547172569}
   m_CullTransparentMesh: 1
+--- !u!1 &1588659182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588659183}
+  m_Layer: 5
+  m_Name: ArrowPos1_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1588659183
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588659182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1998241466}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 9.19, y: 0.52}
+  m_SizeDelta: {x: 2.0875, y: 2.0144}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1602019255
 GameObject:
   m_ObjectHideFlags: 0
@@ -6601,6 +6672,8 @@ RectTransform:
   - {fileID: 1010316493}
   - {fileID: 489270348}
   - {fileID: 1319925708}
+  - {fileID: 1169534810}
+  - {fileID: 1588659183}
   m_Father: {fileID: 2087067414}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6663,6 +6736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd6642047c535c45b9b8fead4f44186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  R_and_P: {fileID: 1123934619}
+  maingame: {fileID: 1123934617}
+  Blocage: {fileID: 1033034789}
+  bat1: {fileID: 717452275}
   OuvrierInfos:
   - Price: 10
   - Price: 20
@@ -6675,11 +6752,7 @@ MonoBehaviour:
   - Price: 500
   - Price: 1000
   ouvrier_text_price: {fileID: 1264861141}
-  R_and_P: {fileID: 1123934619}
-  bat1: {fileID: 717452275}
   value_to_upgrade: 10
-  maingame: {fileID: 1123934617}
-  Blocage: {fileID: 1033034789}
 --- !u!1 &2048723457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5023926980357829201, guid: 8ef86dbf0d3864944b4c869e2ceb8423, type: 3}
@@ -7134,6 +7207,14 @@ PrefabInstance:
       propertyPath: pos3
       value: 
       objectReference: {fileID: 1319925708}
+    - target: {fileID: 5023926980357829203, guid: 8ef86dbf0d3864944b4c869e2ceb8423, type: 3}
+      propertyPath: pos4
+      value: 
+      objectReference: {fileID: 1169534810}
+    - target: {fileID: 5023926980357829203, guid: 8ef86dbf0d3864944b4c869e2ceb8423, type: 3}
+      propertyPath: pos5
+      value: 
+      objectReference: {fileID: 1588659183}
     - target: {fileID: 5023926980357829203, guid: 8ef86dbf0d3864944b4c869e2ceb8423, type: 3}
       propertyPath: _prefab
       value: 

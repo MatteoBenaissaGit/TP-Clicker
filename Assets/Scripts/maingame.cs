@@ -37,20 +37,20 @@ public class maingame : MonoBehaviour
             //récupère la position du clic
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
-            //action si on clic sur le monstre
+            //action si on clic sur un batiment
             if (hit.collider == BAT1_ref)
             {
                 bat1.Hit(hit.transform);
             }
         }
-        //check arrows
+        //desactive la fleche si le bool arrow1 est false
         if (arrow1 == false)
         {
             PrefabArrowTuto.SetActive(false);
         }
     }
 
-    public void ShowBrick(Transform Pos, int value)
+    public void ShowBrick(Transform Pos, int value) //fait apparaitre une brique qui sort du bat
     {
         //affiche mes dégats
         GameObject go = GameObject.Instantiate(PrefabHitPoint, Pos, false);
@@ -62,7 +62,7 @@ public class maingame : MonoBehaviour
         GameObject.Destroy(go, 0.8f);
     }
 
-    public void CheckCanBuy(TextMeshProUGUI _text, int value_number, int value_neaded) //text en rouge quand pas possible d'achcheter
+    public void CheckCanBuy(TextMeshProUGUI _text, int value_number, int value_neaded) //text en rouge quand pas possible d'acheter
     {
         if (value_number >= value_neaded)
         {

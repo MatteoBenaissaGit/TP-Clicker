@@ -7,54 +7,53 @@ using UnityEngine.UI;
 
 public class Bat1 : MonoBehaviour
 {
+    #region references d'objets/script
     public maingame maingame;
     public Transform Bat1_Pos;
-
     public GameObject Visual;
     public Ressources_and_people R_and_P;
-    public int level = 0;
-    public int value_to_upgrade = 0;
-
-    [SerializeField] List<Bat1_Upgrades> Bat1_Upgrades;
-
-    public TextMeshProUGUI bat1_price_txt;
-    public TextMeshProUGUI bat1_name;
-    public TextMeshProUGUI bat1_update_description;
-    public Image bat1_update_sprite;
-
-    public int Bat1_clicdamage = 1;
-
     public GameObject PrefabClicBrick;
-
     public Ouvrier ouvrier;
-
-    //arrow tuto variables
     public ScriptArrowTuto arrowtuto;
+    #endregion
+
+    public int level = 0; //niveau du bat
+    public int value_to_upgrade = 0; //valeur pour ameliorer
+
+    [SerializeField] List<Bat1_Upgrades> Bat1_Upgrades; //usage de la classe Bat1_Upgrade pour modif l'affichage/les vlaeurs
+
+    public TextMeshProUGUI bat1_price_txt; //prix affiché sur bouton
+    public TextMeshProUGUI bat1_name; //nom affiché ingame
+    public TextMeshProUGUI bat1_update_description; //description affiché sur bouton
+    public Image bat1_update_sprite; //image affiché ingame
+
+    public int Bat1_clicdamage = 1; //dégats du clic
+
 
     private void Start()
     {
-        Bat1Update(Bat1_Upgrades[level]);
+        Bat1Update(Bat1_Upgrades[level]); //reference le bat au start avec son niveau 0
     }
 
     void Update()
     {
-        maingame.CheckCanBuy(bat1_price_txt, R_and_P.brick_number, value_to_upgrade);
+        maingame.CheckCanBuy(bat1_price_txt, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
     }
 
-    //upgrading
-    public void UpgradeNextLevel()
+    public void UpgradeNextLevel() //passe au niveau suivant
     {
         if (R_and_P.brick_number >= value_to_upgrade)
         {
-            R_and_P.brick_number -= value_to_upgrade;
-            level++;
-            Bat1Update(Bat1_Upgrades[level]);
+            R_and_P.brick_number -= value_to_upgrade; //enleve le prix au nb de brick
+            level++; //augmente le niveau
+            Bat1Update(Bat1_Upgrades[level]); //recupere les valeurs de l'update
+            #region action selon le niveau
             if (level == 1) //upgrade du niv1
             {
-                arrowtuto.bat1_buyed = true;
-                ouvrier.UnlockOuvrier();
-                arrowtuto.posarrow = 2;
-                arrowtuto.CheckPosArrow1();
+                arrowtuto.bat1_buyed = true; //variable pour indiquer a la fleche que le bat est acheter
+                arrowtuto.posarrow = 2; //modifie le placage de reference de la fleche
+                ouvrier.UnlockOuvrier(); //debloque l'ouvrier
+                arrowtuto.CheckPosArrow1(); //change la place de la fleche
             }
             if (level == 2) //upgrade du niv2
             {
@@ -68,52 +67,48 @@ public class Bat1 : MonoBehaviour
             {
                 R_and_P.people_augmentation += 3;
             }
+            #endregion
         }
     }
 
     public void Hit(Transform Hit_Pos)
     {
-        //carrière débloquée
-        if (level > 0)
+        if (level > 0) //si carrière débloquée
         {
-            //supprime la fleche
-            maingame.arrow1 = false;
-            //animation de hit sur le bat
-            Visual.transform.DOComplete();
-            Visual.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.3f);
-            //valeurs
-            R_and_P.AddBrick(Bat1_clicdamage);
-            //animation de clic
-            ShowClickBrick(Hit_Pos.transform);
+            Visual.transform.DOComplete(); //complete l'animation précédente pour éviter bug
+            Visual.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.3f); //animation de hit sur le bat
+            R_and_P.AddBrick(Bat1_clicdamage); //valeurs  
+            ShowClickBrick(Hit_Pos.transform); //animation de clic
+            //arrow
+            if (R_and_P.brick_shown >= 10) //si on a assez pour acheter l'ouvrier
+            {
+                arrowtuto.bat1_used = true; //variable pour indiquer a la fleche que le bat est acheter
+                arrowtuto.posarrow = 4; //modifie le placage de reference de la fleche
+                arrowtuto.CheckPosArrow1(); //change la place de la fleche
+            }   
         }
-        //si la carrière n'est pas débloquée
-        if (level == 0)
+        if (level == 0) //si la carrière n'est pas débloquée
         {
-            //animation de hit sur le bat
+            //animation réduite de hit sur le bat  
             Visual.transform.DOComplete();
             Visual.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0), 0.5f);
         }
     }
 
-    public void Bat1Update(Bat1_Upgrades _bat1upgrade)
-    {
-        //change le sprite du bat
-        Visual.GetComponent<SpriteRenderer>().sprite = _bat1upgrade.Sprite;
-        //change le prix
-        bat1_price_txt.text = _bat1upgrade.Price.ToString();
-        value_to_upgrade = _bat1upgrade.Price;
-        //change le nom
-        bat1_name.text = _bat1upgrade.Name;
-        //change la description de l'update
-        bat1_update_description.text = _bat1upgrade.Description;
-        //change le sprite de l'icone dans l'update
-        bat1_update_sprite.sprite = _bat1upgrade.SpriteUpdate;
+    public void Bat1Update(Bat1_Upgrades _bat1upgrade) //modifier visuelement le bat
+    { 
+        Visual.GetComponent<SpriteRenderer>().sprite = _bat1upgrade.Sprite; //change le sprite du bat
+        bat1_price_txt.text = _bat1upgrade.Price.ToString(); //change le prix
+        value_to_upgrade = _bat1upgrade.Price; //change le prix
+        bat1_name.text = _bat1upgrade.Name; //change le nom
+        bat1_update_description.text = _bat1upgrade.Description; //change la description de l'update
+        bat1_update_sprite.sprite = _bat1upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
     }
 
     public void AddOuvrier() //ajoute un ouvrier
     {
-        R_and_P.brick_augmentation += 1;
-        //ajoute graphiquement un ouvrier
+        R_and_P.brick_augmentation += 1; //ajoute un ouvrier
+        // -> possiblité d'ajouter graphiquement un ouvrier ici
     }
 
     public void ShowClickBrick(Transform Hit_Pos) //anim du clic 
@@ -121,14 +116,13 @@ public class Bat1 : MonoBehaviour
         //affiche l'animation
         for (int i = 0; i< Bat1_clicdamage; i++)
         {
-            GameObject go = GameObject.Instantiate(PrefabClicBrick, Hit_Pos, false);
-            //transform
+            GameObject go = GameObject.Instantiate(PrefabClicBrick, Hit_Pos, false); //genere la brique qui sort
+            //transform et anim de la brique
             go.transform.DOScale(0, 0f);
             go.transform.DOComplete();
             go.transform.DOScale(0.75f, 0.2f);
             go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x+0.5f, Hit_Pos.localPosition.y, 1);
             go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f,5f), Hit_Pos.localPosition.y-2f, 1), Random.Range(2f,4f), 1, 0.9f);
-            //go.GetComponent<SpriteRenderer>().DOFade(0, 0.8f);
             GameObject.Destroy(go, 0.8f);
         }
     }
