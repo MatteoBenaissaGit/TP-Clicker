@@ -16,6 +16,7 @@ public class Ressources_and_people : MonoBehaviour
     public TextMeshProUGUI brick_per_second;
     public int brick_number = 0;
     [HideInInspector] public int brick_augmentation = 0;
+    public int brick_multiplier = 1;
     float brick_number_before = 0f;
     [HideInInspector] public float brick_shown = 0f;
     [HideInInspector] public float brick_number_temp = 0f;
@@ -25,6 +26,7 @@ public class Ressources_and_people : MonoBehaviour
     public TextMeshProUGUI people_per_second;
     public int people_number = 0;
     [HideInInspector] public int people_augmentation = 0;
+    public int people_multiplier = 1;
     float people_number_before = 0f;
     [HideInInspector] public float people_shown = 0f;
 
@@ -72,8 +74,8 @@ public class Ressources_and_people : MonoBehaviour
         brick.text = brick_shown.ToString();
         people.text = people_shown.ToString();
         //valeurs par seconde
-        brick_per_second.text = "+ " + brick_augmentation.ToString() + "/s";
-        people_per_second.text = "+ " + people_augmentation.ToString() + "/s";
+        brick_per_second.text = "+ " + (brick_augmentation*brick_multiplier).ToString() + "/s";
+        people_per_second.text = "+ " + (people_augmentation*people_multiplier).ToString() + "/s";
     }
 
     public void AddBrick(int number) //ajoute une brique manuelement
@@ -92,8 +94,8 @@ public class Ressources_and_people : MonoBehaviour
 
     public void AddBrickAndPeople() //ajoute les valeurs auto
     {
-        brick_number += brick_augmentation;
-        people_number += people_augmentation;
+        brick_number += brick_augmentation * brick_multiplier;
+        people_number += people_augmentation * people_multiplier;
     }
 
     void UpdateBrick_and_PeopleNumber() //reajuste les variables qui servent de referentiel à l'affichage dynamique

@@ -67,6 +67,10 @@ public class Bat1 : MonoBehaviour
             {
                 R_and_P.people_augmentation += 3;
             }
+            if (level == 5) //upgrade du niv4
+            {
+                R_and_P.brick_multiplier += 1;
+            }
             #endregion
         }
     }
