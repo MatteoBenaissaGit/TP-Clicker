@@ -30,8 +30,11 @@ public class Buttons : MonoBehaviour
 
         if (_arrow1.bat1_buyed == false)
         {
-            _arrow1.posarrow = 0;
-            _arrow1.CheckPosArrow1();
+            if (actualselect != 2)
+            {
+                _arrow1.posarrow = 0;
+                _arrow1.CheckPosArrow1();
+            } 
         }
         else
         {
@@ -54,13 +57,19 @@ public class Buttons : MonoBehaviour
 
         if (_arrow1.bat1_buyed == false)
         {
-            _arrow1.posarrow = 0;
-            _arrow1.CheckPosArrow1();
+            if (actualselect != 1)
+            {
+                _arrow1.posarrow = 0;
+                _arrow1.CheckPosArrow1();
+            }
         }
         else
         {
-            _arrow1.posarrow = 2;
-            _arrow1.CheckPosArrow1();
+            if (actualselect != 3)
+            {
+                _arrow1.posarrow = 2;
+                _arrow1.CheckPosArrow1();
+            }
         }
 
         if (actualselect != 2)
@@ -75,12 +84,6 @@ public class Buttons : MonoBehaviour
         tab2.SetActive(false);
         tab3.SetActive(true);
 
-        if (actualselect != 3)
-        {
-            MoveTabButton(_tab3);
-            CheckRetract();
-            actualselect = 3;
-        }
         if (_arrow1.bat1_buyed == false)
         {
             _arrow1.posarrow = 1;
@@ -88,8 +91,18 @@ public class Buttons : MonoBehaviour
         }
         else
         {
-            _arrow1.posarrow = 2;
-            _arrow1.CheckPosArrow1();
+            if (actualselect != 2)
+            {
+                _arrow1.posarrow = 2;
+                _arrow1.CheckPosArrow1();
+            }
+        }
+
+        if (actualselect != 3)
+        {
+            MoveTabButton(_tab3);
+            CheckRetract();
+            actualselect = 3;
         }
 
     }
