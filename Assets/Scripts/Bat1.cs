@@ -148,4 +148,6 @@ public class Bat1 : MonoBehaviour
             GameObject.Destroy(go, 0.8f);
         }
     }
+
+
 }
