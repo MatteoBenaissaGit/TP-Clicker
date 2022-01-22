@@ -10,21 +10,23 @@ public class EtiquetteShower : MonoBehaviour
     public Transform Etiquette;
     public BoxCollider2D Collider_Etiquette;
 
-    private void Update()
+    void Update()
     {
-        Vector3 mousePos = Input.mousePosition;
-        GetComponent<Transform>().position.x = mousePos.x;
-        GetComponent<Transform>().position.y = mousePos.y;
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other == Collider_Etiquette)
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("DETECTION");
-            MouseIsOver();
+            Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
+            if (hit.collider == Collider_Etiquette)
+            {
+                MouseIsOver();
+            }
+            else
+            {
+                MouseIsExit();
+            }
         }
     }
+
     public void MouseIsOver()
     {
         Debug.Log("ENTER");

@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class Bat1_Upgrades
 {
+    public int PeopleNeed;
     public string Name;
     public Sprite Sprite;
     public Sprite SpriteUpdate;

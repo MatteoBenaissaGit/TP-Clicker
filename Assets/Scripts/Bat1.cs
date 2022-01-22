@@ -16,10 +16,13 @@ public class Bat1 : MonoBehaviour
     public Ouvrier ouvrier;
     public ScriptArrowTuto arrowtuto;
     public Dialogue_Box _Dialog_box;
+    public GameObject people_bloc_upgrade;
+    public TextMeshProUGUI people_bloc_text;
     #endregion
 
     public int level = 0; //niveau du bat
     public int value_to_upgrade = 0; //valeur pour ameliorer
+    public int people_need_to_upgrade = 0;
 
     [SerializeField] List<Bat1_Upgrades> Bat1_Upgrades; //usage de la classe Bat1_Upgrade pour modif l'affichage/les vlaeurs
 
@@ -39,6 +42,14 @@ public class Bat1 : MonoBehaviour
     void Update()
     {
         maingame.CheckCanBuy(bat1_price_txt, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
+        if (R_and_P.people_shown < people_need_to_upgrade)
+        {
+            people_bloc_upgrade.SetActive(true);
+        }
+        if (R_and_P.people_shown > people_need_to_upgrade)
+        {
+            people_bloc_upgrade.SetActive(false);
+        }
     }
 
     public void UpgradeNextLevel() //passe au niveau suivant
@@ -117,11 +128,13 @@ public class Bat1 : MonoBehaviour
         bat1_name.text = _bat1upgrade.Name; //change le nom
         bat1_update_description.text = _bat1upgrade.Description; //change la description de l'update
         bat1_update_sprite.sprite = _bat1upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
+        people_need_to_upgrade = _bat1upgrade.PeopleNeed; //remet la variable du nombre de people dont on a besoin a jour
+        people_bloc_text.text = people_need_to_upgrade.ToString() + " habitants requis";
     }
 
     public void AddOuvrier() //ajoute un ouvrier
     {
-        //dialog
+        //dialog tuto
         if (R_and_P.brick_augmentation == 0) //si on a assez pour acheter l'ouvrier
         {
             _Dialog_box.dialog_number++;
@@ -148,6 +161,5 @@ public class Bat1 : MonoBehaviour
             GameObject.Destroy(go, 0.8f);
         }
     }
-
 
 }
