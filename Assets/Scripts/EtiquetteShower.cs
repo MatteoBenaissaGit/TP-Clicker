@@ -10,6 +10,11 @@ public class EtiquetteShower : MonoBehaviour
     public Transform Etiquette;
     public BoxCollider2D Collider_Etiquette;
 
+    private void Start()
+    {
+        MouseIsOver();
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -29,7 +34,6 @@ public class EtiquetteShower : MonoBehaviour
 
     public void MouseIsOver()
     {
-        Debug.Log("ENTER");
         Etiquette.DOScale(1f, 0.2f);
     }
     public void MouseIsExit()

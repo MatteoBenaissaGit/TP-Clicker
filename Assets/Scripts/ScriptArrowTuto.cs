@@ -6,10 +6,12 @@ using DG.Tweening;
 public class ScriptArrowTuto : MonoBehaviour
 {
     public Transform _prefab; //ref de la fleche
+    public Transform _parent; //reef du parent
     #region variables des différentes position
     public Transform pos0;
     public Transform pos1;
     public Transform pos2;
+    public Transform pos200;
     public Transform pos3;
     public Transform pos4;
     public Transform pos5;
@@ -28,6 +30,7 @@ public class ScriptArrowTuto : MonoBehaviour
 
     void Update()
     {
+        
         //gestion du timer et de l'animation
         timer += Time.deltaTime; //augmente le timer
         if (timer > 0.6f)
@@ -64,6 +67,11 @@ public class ScriptArrowTuto : MonoBehaviour
         {
             _prefab.position = pos2.position;
             anim_end_pos = pos2.position.x;
+        }
+        if (posarrow == 200)
+        {
+            _prefab.position = pos200.position;
+            anim_end_pos = pos200.position.x;
         }
         if (posarrow == 3)
         {

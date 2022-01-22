@@ -9,66 +9,22 @@ public class Buttons : MonoBehaviour
     #region tabs
     [SerializeField] GameObject tab1;
     [SerializeField] GameObject tab2;
-    [SerializeField] GameObject tab3;
     [SerializeField] RectTransform _tab1;
     [SerializeField] RectTransform _tab2;
-    [SerializeField] RectTransform _tab3;
-    int actualselect = 1; //tab selectionné
+    int actualselect = 0; //tab selectionné
     #endregion
-
-    private void Awake()
-    {
-        MoveTabButton(_tab1); //move le tab de base au start
-    }
 
     public void Click1() //active l'écran 1 
     {
-        //set des actifs/non actifs
-        tab1.SetActive(true);
-        tab2.SetActive(false);
-        tab3.SetActive(false);
-
-        //arrow tuto
-        if (_arrow1.bat1_used == false)
-        {
-            if (_arrow1.bat1_buyed == false)
-            {
-                if (actualselect != 2)
-                {
-                    _arrow1.posarrow = 0;
-                    _arrow1.CheckPosArrow1();
-                }
-            }
-            else
-            {
-                _arrow1.posarrow = 3;
-                _arrow1.CheckPosArrow1();
-            }
-        }
-        else if (_arrow1.posarrow == 5)
-        {
-            _arrow1.posarrow = 4;
-            _arrow1.CheckPosArrow1();
-        }
         
-        //anim
         if (actualselect != 1)
         {
-            MoveTabButton(_tab1);
+            //set des actifs/non actifs
+            tab1.SetActive(true);
+            tab2.SetActive(false);
             CheckRetract();
-            actualselect = 1;
-        } 
-        
-    }
-    public void Click2() //active l'écran 2 
-    {
-        //set des actifs/non actifs
-        tab2.SetActive(true);
-        tab3.SetActive(false);
 
-        //arrow tuto
-        if (_arrow1.bat1_used == false)
-        {
+            //arrow tuto
             if (_arrow1.bat1_buyed == false)
             {
                 if (actualselect != 1)
@@ -79,62 +35,103 @@ public class Buttons : MonoBehaviour
             }
             else
             {
-                if (actualselect != 3)
+                if (_arrow1.bat1_used == false)
                 {
-                    _arrow1.posarrow = 2;
+                    _arrow1.posarrow = 200;
                     _arrow1.CheckPosArrow1();
                 }
+                else
+                {
+                    _arrow1.posarrow = 5;
+                    _arrow1.CheckPosArrow1();
+                }  
             }
+
+            //anim
+            MoveTabButton(_tab1);
+            actualselect = 1;
         }
         else
         {
-            _arrow1.posarrow = 5;
-            _arrow1.CheckPosArrow1();
-        }
+            tab1.SetActive(false);
 
-        //anim
-        if (actualselect != 2)
-        {
-            MoveTabButton(_tab2);
-            CheckRetract();
-            actualselect = 2;
-        }
-    }
-    public void Click3() //active l'écran 3 
-    {
-        //set des actifs/non actifs
-        tab2.SetActive(false);
-        tab3.SetActive(true);
-
-        //arrow tuto
-        if (_arrow1.bat1_used == false)
-        {
-            if (_arrow1.bat1_buyed == false)
+            //Arrow
+            if (_arrow1.bat1_used == false)
             {
-                _arrow1.posarrow = 1;
-                _arrow1.CheckPosArrow1();
-            }
-            else
-            {
-                if (actualselect != 2)
+                if (_arrow1.bat1_buyed == true)
                 {
-                    _arrow1.posarrow = 2;
+                    _arrow1.posarrow = 3;
                     _arrow1.CheckPosArrow1();
                 }
             }
-        }
-        else if (_arrow1.posarrow == 5)
-        {
-            _arrow1.posarrow = 4;
-            _arrow1.CheckPosArrow1();
-        }
-
-        //anim
-        if (actualselect != 3)
-        {
-            MoveTabButton(_tab3);
+            
+            //anim
             CheckRetract();
-            actualselect = 3;
+            actualselect = 0;
+        }
+    }
+    public void Click2() //active l'écran 2
+    {
+        
+        if (actualselect != 2)
+        {
+            //set des actifs/non actifs
+            tab1.SetActive(false);
+            tab2.SetActive(true);
+            CheckRetract();
+
+            //arrow tuto
+            if (_arrow1.bat1_used == false)
+            {
+                if (_arrow1.bat1_buyed == false)
+                {
+                        _arrow1.posarrow = 1;
+                        _arrow1.CheckPosArrow1();
+                }
+                else
+                {
+                    if (actualselect != 2)
+                    {
+                        _arrow1.posarrow = 2;
+                        _arrow1.CheckPosArrow1();
+                    }
+                }
+            }
+            else if (_arrow1.posarrow == 5)
+            {
+                _arrow1.posarrow = 4;
+                _arrow1.CheckPosArrow1();
+            }
+
+            //anim
+            MoveTabButton(_tab2);
+            actualselect = 2;
+        }
+        else
+        {
+            //arrow tuto
+            if (_arrow1.bat1_used == false)
+            {
+                if (_arrow1.bat1_buyed == false)
+                {
+                    _arrow1.posarrow = 0;
+                    _arrow1.CheckPosArrow1();
+                }
+                else
+                {
+                    _arrow1.posarrow = 3;
+                    _arrow1.CheckPosArrow1();
+                }
+            }
+            else if (_arrow1.posarrow == 4)
+            {
+                _arrow1.posarrow = 3;
+                _arrow1.CheckPosArrow1();
+            }
+
+            tab2.SetActive(false);
+            CheckRetract();
+            actualselect = 0;
         }
 
     }
@@ -158,10 +155,6 @@ public class Buttons : MonoBehaviour
         if (actualselect == 2)
         {
             RetractTabButton(_tab2);
-        }
-        if (actualselect == 3)
-        {
-            RetractTabButton(_tab3);
         }
     }
 }
