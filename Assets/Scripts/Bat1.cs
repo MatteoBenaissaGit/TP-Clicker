@@ -161,7 +161,10 @@ public class Bat1 : MonoBehaviour
                 Visual.transform.DOComplete(); //complete l'animation précédente pour éviter bug
                 Visual.transform.DOPunchScale(new Vector3(0.004f, 0.004f, 0), 0.3f); //animation de hit sur le bat
                 R_and_P.AddBrick(Bat1_clicdamage); //valeurs  
-                ShowClickBrick(Hit_Pos.transform); //animation de clic
+                ShowClickBrick(Hit_Pos.transform, Bat1_clicdamage); //animation de clic
+                //évite d'avoir 2x une brique par clic
+                R_and_P.brick_number_temp += Bat1_clicdamage;
+                R_and_P.brick_number_before += Bat1_clicdamage;
             }
             if (level == 0) //si la carrière n'est pas débloquée
             {
@@ -229,13 +232,13 @@ public class Bat1 : MonoBehaviour
         // -> possiblité d'ajouter graphiquement un ouvrier ici
     }
 
-    public void ShowClickBrick(Transform Hit_Pos) //anim du clic 
+    public void ShowClickBrick(Transform Hit_Pos, int nb_brick) //anim du clic 
     {
         //si il n'y a pas le feu
         if (is_on_fire == false)
         {
             //affiche l'animation
-            for (int i = 0; i < Bat1_clicdamage; i++)
+            for (int i = 0; i < nb_brick; i++)
             {
                 GameObject go = GameObject.Instantiate(PrefabClicBrick, Hit_Pos, false); //genere la brique qui sort
                                                                                          //transform et anim de la brique
@@ -246,6 +249,7 @@ public class Bat1 : MonoBehaviour
                 go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f, 5f), Hit_Pos.localPosition.y - 2f, 1), Random.Range(2f, 4f), 1, 0.9f);
                 GameObject.Destroy(go, 0.8f);
             }
+
         }
     }
 

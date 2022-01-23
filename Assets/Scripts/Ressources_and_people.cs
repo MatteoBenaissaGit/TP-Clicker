@@ -17,9 +17,9 @@ public class Ressources_and_people : MonoBehaviour
     public int brick_number = 0;
     [HideInInspector] public int brick_augmentation = 0;
     public int brick_multiplier = 1;
-    float brick_number_before = 0f;
-    [HideInInspector] public float brick_shown = 0f;
-    [HideInInspector] public float brick_number_temp = 0f;
+    public float brick_number_before = 0f;
+    public float brick_shown = 0f;
+    public float brick_number_temp = 0f;
 
     //people
     public TextMeshProUGUI people;
@@ -64,10 +64,7 @@ public class Ressources_and_people : MonoBehaviour
         if (brick_number_temp < brick_shown)
         {
             brick_number_temp = brick_shown;
-            if (brick_augmentation > 0)
-            {
-                bat1.ShowClickBrick(Bat1_Pos); //sort une brique visuelement
-            }
+            bat1.ShowClickBrick(Bat1_Pos, 1); //sort une brique visuelement
         }
         if (brick_number_temp > brick_shown)
         {
@@ -97,7 +94,7 @@ public class Ressources_and_people : MonoBehaviour
 
     public void AddBrickAndPeople() //ajoute les valeurs auto
     {
-        if (bat1.isUpgrading == false) //si la briqueterie n'est pas en train d'etre améliorer
+        if (bat1.isUpgrading == false && bat1.is_on_fire == false) //si la briqueterie n'est pas en train d'etre améliorer
         {
             brick_number += brick_augmentation * brick_multiplier;
         }

@@ -33,7 +33,7 @@ public class FireScript : MonoBehaviour
                         bat1._Dialog_box.dialog_number++;
                         bat1._Dialog_box.DialogUpdateCall();
                         bat1._Dialog_box.BumpBox();
-                        StartCoroutine(bat1._Dialog_box.CloseAfterTimer(3.5f)); //dialogbox se ferme
+                        StartCoroutine(bat1._Dialog_box.CloseAfterTimer(5f)); //dialogbox se ferme
                         tuto_done = true;
                     }  
                 }

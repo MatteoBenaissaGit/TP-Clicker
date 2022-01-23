@@ -90,7 +90,6 @@ public class maingame : MonoBehaviour
         {
             if (bat1.isUpgrading == false) //empeche de bruler un bat qui upgrade
             {
-                Debug.Log("fire tuto start");
                 fire.transform.position = new Vector3(bat1.transform.position.x, bat1.transform.position.y, 0);
                 fire.transform.DOScale(new Vector3(4, 4, 1), 0.4f);
                 bat1.FireStart();
@@ -112,7 +111,6 @@ public class maingame : MonoBehaviour
             {
                 if (bat1.isUpgrading == false) //empeche de bruler un bat qui upgrade
                 {
-                    Debug.Log("fire start");
                     fire.transform.position = new Vector3(bat1.transform.position.x, bat1.transform.position.y, 0);
                     fire.transform.DOScale(new Vector3(4, 4, 1), 0.4f);
                     bat1.FireStart();
