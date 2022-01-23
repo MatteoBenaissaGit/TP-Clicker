@@ -48,8 +48,8 @@ public class Ressources_and_people : MonoBehaviour
         if (timer >= 1f)
         {
             UpdateBrick_and_PeopleNumber(); //maj affichage
-            timer = 0f;
             AddBrickAndPeople(); //ajoute les valeurs auto
+            timer = 0f;
             lerp = 0f;
         }
 
@@ -94,7 +94,10 @@ public class Ressources_and_people : MonoBehaviour
 
     public void AddBrickAndPeople() //ajoute les valeurs auto
     {
-        brick_number += brick_augmentation * brick_multiplier;
+        if (bat1.isUpgrading == false) //si la briqueterie n'est pas en train d'etre améliorer
+        {
+            brick_number += brick_augmentation * brick_multiplier;
+        }
         people_number += people_augmentation * people_multiplier;
     }
 

@@ -13,4 +13,5 @@ public class Bat1_Upgrades
     public int Price;
     [TextArea]
     public string Description;
+    public int ClicNeed;
 }
