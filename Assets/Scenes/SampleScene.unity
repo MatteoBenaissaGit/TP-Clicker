@@ -2619,41 +2619,40 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     Price: 100
-    Description: "R\xE9habiliter la Briqueterie  \n\n-> D\xE9blocage de la Briqueterie "
+    Description: "R\xE9habiliter la Carri\xE8re  \n\n-> D\xE9blocage de la Briqueterie "
     ClicNeed: 10
   - PeopleNeed: 0
     Name: "Carri\xE8re niv1."
     Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
-    Price: 20
-    Description: "Agrandissement de la Briqueterie  \n\n+ 1 habitant par seconde"
+    Price: 24
+    Description: "Agrandissement de la Carri\xE8re  \n\n+ 1 brique/clic"
     ClicNeed: 20
-  - PeopleNeed: 100
+  - PeopleNeed: 0
     Name: "Carri\xE8re niv2."
     Sprite: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
-    Price: 60
+    Price: 29
     Description: 'Ouvetrure d''une cantine
 
 
       + 1 brique/clic'
     ClicNeed: 30
-  - PeopleNeed: 250
+  - PeopleNeed: 0
     Name: "Carri\xE8re niv3."
     Sprite: {fileID: 21300000, guid: 34776463f9bf95f459ed99a1640e4fae, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     Price: 150
-    Description: "R\xE9novation des vestiaires\n\n+ 3 habitant par seconde"
+    Description: "R\xE9novation des vestiaires\n\n+ 1 brique/clic"
     ClicNeed: 40
-  - PeopleNeed: 500
+  - PeopleNeed: 0
     Name: "Carri\xE8re niv4."
     Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
     Price: 500
-    Description: "Formation suppl\xE9mentaire des ouvrier\n\n-> Chaque ouvrier rapporte
-      2 briques au lieu d'une"
+    Description: "Formation suppl\xE9mentaire des ouvrier\n\n+ 1 brique/clic"
     ClicNeed: 50
-  - PeopleNeed: 1000
+  - PeopleNeed: 0
     Name: Briqueterie niv5.
     Sprite: {fileID: 21300000, guid: 1504a41d108d94b448ef9e795de00211, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 45f228c5fe7b13c43a82b45e4672bce1, type: 3}
@@ -3514,8 +3513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "R\xE9habiliter la carri\xE8re\n\n-> D\xE9blocage de la carri\xE8re\n+1
-    habitant/seconde"
+  m_text: "R\xE9habiliter la carri\xE8re\n\n\n-> D\xE9blocage de la carri\xE8re\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6949,7 +6947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Briqueterie
+  m_text: "Carri\xE8re"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8850,8 +8848,15 @@ MonoBehaviour:
     Description: Parfait nous avons assez de brique pour recruter un ouvrier !
     sprite: {fileID: -8606212708519370467, guid: 3b956603a9b1b5e4697b5096d21d6851, type: 3}
   - Name: Miroslov
-    Description: "Super, maintenant continuons de developper la briqueterie jusqu'\xE0
-      attirer 100 habitant !"
+    Description: "Super, maintenant continuons d'am\xE9liorer la carri\xE8re !"
+    sprite: {fileID: -8606212708519370467, guid: 3b956603a9b1b5e4697b5096d21d6851, type: 3}
+  - Name: Miroslov
+    Description: "Un feu s'est declench\xE9 ! Tapez plusieurs fois dessus pour l'\xE9teindre
+      !"
+    sprite: {fileID: -8606212708519370467, guid: 3b956603a9b1b5e4697b5096d21d6851, type: 3}
+  - Name: Miroslov
+    Description: "Ouf, c'est fini ! Les feux qui se d\xE9clenchent stoppent la production
+      ils nous faut donc rester vigilent."
     sprite: {fileID: -8606212708519370467, guid: 3b956603a9b1b5e4697b5096d21d6851, type: 3}
   - Name: Miroslov
     Description: Bonjour Mr. le maire, je suis Miroslov, votre assitant. Mettons

@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class FireScript : MonoBehaviour
 {
+    public bool tuto_done = false;
     public Transform _fire;
     public Collider2D firecoll;
     public Bat1 bat1;
@@ -26,6 +27,15 @@ public class FireScript : MonoBehaviour
                 if (_fire.transform.localScale.x <= 2f) //si le feu est détruit
                 {
                     bat1.FireEnd();
+                    if (tuto_done == false)
+                    {
+                        //dialog
+                        bat1._Dialog_box.dialog_number++;
+                        bat1._Dialog_box.DialogUpdateCall();
+                        bat1._Dialog_box.BumpBox();
+                        StartCoroutine(bat1._Dialog_box.CloseAfterTimer(3.5f)); //dialogbox se ferme
+                        tuto_done = true;
+                    }  
                 }
             }
         } 

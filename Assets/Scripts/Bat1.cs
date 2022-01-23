@@ -94,7 +94,14 @@ public class Bat1 : MonoBehaviour
             percent = 0f;
             fill_goal = 0f;
             fill_before = 0f;
-            upgrade_count_total = Bat1_Upgrades[level].ClicNeed; //met le nombre de clic max
+            if (level == 0) //si niveau 0 = met le nb de base
+            {
+                upgrade_count_total = Bat1_Upgrades[0].ClicNeed;//met le nombre de clic max
+            }
+            else
+            {
+                upgrade_count_total = (int)(upgrade_count_total * 1.2f); //met le nombre de clic max
+            }
             MajUpgradeClic();
             clic_bloc.SetActive(true);
 
@@ -125,21 +132,9 @@ public class Bat1 : MonoBehaviour
             _Dialog_box.DialogUpdateCall();
             _Dialog_box.BumpBox();
         }
-        if (level == 2) //upgrade du niv2
-        {
-            R_and_P.people_augmentation += 1;
-        }
-        if (level == 3) //upgrade du niv3
+        if (level >= 2)
         {
             Bat1_clicdamage += 1;
-        }
-        if (level == 4) //upgrade du niv4
-        {
-            R_and_P.people_augmentation += 3;
-        }
-        if (level == 5) //upgrade du niv4
-        {
-            R_and_P.brick_multiplier += 1;
         }
         #endregion
     }
@@ -203,8 +198,15 @@ public class Bat1 : MonoBehaviour
     public void Bat1Update(Bat1_Upgrades _bat1upgrade) //modifier visuelement le bat
     { 
         Visual.GetComponent<Image>().sprite = _bat1upgrade.Sprite; //change le sprite du bat
-        bat1_price_txt.text = _bat1upgrade.Price.ToString(); //change le prix
-        value_to_upgrade = _bat1upgrade.Price; //change le prix
+        if (level > 1)
+        {
+            value_to_upgrade = (int)(value_to_upgrade * 1.2); //change le prix
+        }
+        else if (level == 1)
+        {
+            value_to_upgrade = 20;
+        }
+        bat1_price_txt.text = (value_to_upgrade).ToString(); //change le prix
         bat1_name.text = _bat1upgrade.Name; //change le nom
         bat1_update_description.text = _bat1upgrade.Description; //change la description de l'update
         bat1_update_sprite.sprite = _bat1upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
@@ -220,7 +222,8 @@ public class Bat1 : MonoBehaviour
             _Dialog_box.dialog_number++;
             _Dialog_box.DialogUpdateCall();
             _Dialog_box.BumpBox();
-            StartCoroutine(_Dialog_box.CloseAfterTimer(3.5f));
+            StartCoroutine(_Dialog_box.CloseAfterTimer(3.5f)); //dialogbox se ferme
+            StartCoroutine(maingame.FireLauncher(10)); //fire après la fin du premier tuto
         }
         R_and_P.brick_augmentation += 1; //ajoute un ouvrier
         // -> possiblité d'ajouter graphiquement un ouvrier ici

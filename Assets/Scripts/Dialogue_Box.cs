@@ -60,7 +60,7 @@ public class Dialogue_Box : MonoBehaviour
         }
         if (_desc.text.Length > 100)
         {
-            _desc.fontSize = 0.32f;
+            _desc.fontSize = 0.38f;
         }
     }
     public IEnumerator CloseAfterTimer(float time)

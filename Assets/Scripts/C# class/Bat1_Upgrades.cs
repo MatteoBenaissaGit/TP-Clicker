@@ -10,8 +10,8 @@ public class Bat1_Upgrades
     public string Name;
     public Sprite Sprite;
     public Sprite SpriteUpdate;
-    public int Price;
+    [HideInInspector] public int Price = 20;
     [TextArea]
     public string Description;
-    public int ClicNeed;
+    [HideInInspector] public int ClicNeed = 10;
 }
