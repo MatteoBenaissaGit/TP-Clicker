@@ -47,8 +47,11 @@ public class Ressources_and_people : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 1f)
         {
-            UpdateBrick_and_PeopleNumber(); //maj affichage
-            AddBrickAndPeople(); //ajoute les valeurs auto
+            if (bat1.is_on_fire == false) //si la carrière ne brule pas
+            {
+                UpdateBrick_and_PeopleNumber(); //maj affichage
+                AddBrickAndPeople(); //ajoute les valeurs auto
+            }
             timer = 0f;
             lerp = 0f;
         }

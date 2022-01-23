@@ -45,6 +45,9 @@ public class Bat1 : MonoBehaviour
     float fill_before = 0f, fill_goal = 0f;
     public GameObject PrefabUpgradeEffect;
 
+    //fire
+    public bool is_on_fire = false;
+
     private void Start()
     {
         Bat1Update(Bat1_Upgrades[level]); //reference le bat au start avec son niveau 0
@@ -66,6 +69,12 @@ public class Bat1 : MonoBehaviour
         lerp += Time.deltaTime / duration;
         percent = (float)Mathf.Lerp((float)fill_before, (float)fill_goal, lerp);
         filler.fillAmount = percent; //filler de la bar
+
+        //fire
+        if (is_on_fire == true)
+        {
+            Visual.GetComponent<Image>().color = new Color32(255, 131, 33, 255);
+        }
     }
 
     public void MajUpgradeClic()
@@ -138,7 +147,7 @@ public class Bat1 : MonoBehaviour
     public void Hit(Transform Hit_Pos)
     {
         //si pas en mode upgrade
-        if (isUpgrading == false)
+        if (isUpgrading == false && is_on_fire == false)
         {
             //tuto dialog
             if (arrowtuto.bat1_buyed == true && R_and_P.brick_number == 9 && R_and_P.brick_augmentation == 0) //si on a assez pour acheter l'ouvrier
@@ -166,13 +175,13 @@ public class Bat1 : MonoBehaviour
                 Visual.transform.DOPunchScale(new Vector3(0.002f, 0.002f, 0), 0.5f);
             }
         }
-        else
+        else if (isUpgrading == true)
         {
             //upgrade
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;
             upgrade_count_number++;
-            fill_goal = (float)upgrade_count_number/ (float)upgrade_count_total;
+            fill_goal = (float)upgrade_count_number / (float)upgrade_count_total;
             percent = fill_before;
             MajUpgradeClic();
             //anim
@@ -189,7 +198,6 @@ public class Bat1 : MonoBehaviour
                 UpgradeDone();
             }
         }
-        
     }
 
     public void Bat1Update(Bat1_Upgrades _bat1upgrade) //modifier visuelement le bat
@@ -220,18 +228,35 @@ public class Bat1 : MonoBehaviour
 
     public void ShowClickBrick(Transform Hit_Pos) //anim du clic 
     {
-        //affiche l'animation
-        for (int i = 0; i< Bat1_clicdamage; i++)
+        //si il n'y a pas le feu
+        if (is_on_fire == false)
         {
-            GameObject go = GameObject.Instantiate(PrefabClicBrick, Hit_Pos, false); //genere la brique qui sort
-            //transform et anim de la brique
-            go.transform.DOScale(0, 0f);
-            go.transform.DOComplete();
-            go.transform.DOScale(0.75f, 0.2f);
-            go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x+0.5f, Hit_Pos.localPosition.y, 1);
-            go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f,5f), Hit_Pos.localPosition.y-2f, 1), Random.Range(2f,4f), 1, 0.9f);
-            GameObject.Destroy(go, 0.8f);
+            //affiche l'animation
+            for (int i = 0; i < Bat1_clicdamage; i++)
+            {
+                GameObject go = GameObject.Instantiate(PrefabClicBrick, Hit_Pos, false); //genere la brique qui sort
+                                                                                         //transform et anim de la brique
+                go.transform.DOScale(0, 0f);
+                go.transform.DOComplete();
+                go.transform.DOScale(0.6f, 0.3f);
+                go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x + 0.5f, Hit_Pos.localPosition.y, 1);
+                go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f, 5f), Hit_Pos.localPosition.y - 2f, 1), Random.Range(2f, 4f), 1, 0.9f);
+                GameObject.Destroy(go, 0.8f);
+            }
         }
+    }
+
+    public void FireStart()
+    {
+        is_on_fire = true;
+        Visual.GetComponent<Image>().color = new Color(244, 102, 27);
+    }
+
+    public void FireEnd()
+    {
+        is_on_fire = false;
+        maingame.FireEnd();
+        Visual.GetComponent<Image>().color = new Color(255, 255, 255);
     }
 
 }

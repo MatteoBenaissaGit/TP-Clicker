@@ -9,6 +9,10 @@ public class maingame : MonoBehaviour
 {
     public GameObject PrefabArrowTuto;
     [HideInInspector] public bool arrow1 = true;
+    
+    public GameObject fire;
+    public FireScript firescript;
+    public bool is_on_fire = false;
 
     public RectTransform scrollview2;
     public GameObject PrefabHitPoint;
@@ -28,6 +32,7 @@ public class maingame : MonoBehaviour
     private void Start()
     {
         PrefabArrowTuto.SetActive(true);
+        StartCoroutine(FireLauncher(5)); //fire 
     }
 
     void Update()
@@ -76,6 +81,34 @@ public class maingame : MonoBehaviour
             tmp.r = 255f;
             _text.color = tmp;
         }
+    }
+
+    public IEnumerator FireLauncher(float time)
+    {
+        yield return new WaitForSeconds(time);
+        int selectbat = Random.Range(1, 1);
+        if (selectbat == 1) //si batiment 1
+        {
+            if (bat1.isUpgrading == false) //empeche de bruler un bat qui upgrade
+            {
+                Debug.Log("fire start");
+                fire.transform.position = new Vector3(bat1.transform.position.x, bat1.transform.position.y,0);
+                fire.transform.DOScale(new Vector3(4, 4, 1), 0.4f);
+                bat1.FireStart();
+            }
+            else
+            {
+                StartCoroutine(FireLauncher(Random.Range(10, 15))); //fire relaunch
+            }
+        }
+    }
+
+    public void FireEnd()
+    {
+        //destroy le feu
+        fire.transform.DOScale(new Vector3(0, 0, 1), 0.4f);
+        StartCoroutine(FireLauncher(Random.Range(10, 15))); //fire relaunch
+
     }
 
 }

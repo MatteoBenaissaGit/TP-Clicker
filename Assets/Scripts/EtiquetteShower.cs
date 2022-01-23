@@ -9,6 +9,10 @@ public class EtiquetteShower : MonoBehaviour
 {
     public Transform Etiquette;
     public BoxCollider2D Collider_Etiquette;
+    public Collider2D Collider_Fire;
+    public Transform ScrollRect;
+    public Transform FocusCamObject;
+    bool isfocusing = false;
 
     private void Start()
     {
@@ -24,12 +28,28 @@ public class EtiquetteShower : MonoBehaviour
             if (hit.collider == Collider_Etiquette)
             {
                 MouseIsOver();
+                isfocusing = true;
             }
-            else
+            else if (hit.collider == Collider_Fire)
+            {
+                isfocusing = true;
+            }
+            else if (hit.collider != Collider_Fire)
             {
                 MouseIsExit();
             }
+
         }
+        if (isfocusing == true)
+        {
+            FocusCam();
+            isfocusing = false;
+        }
+    }
+
+    public void FocusCam()
+    {
+        ScrollRect.DOMove(FocusCamObject.position, 0.5f);
     }
 
     public void MouseIsOver()
