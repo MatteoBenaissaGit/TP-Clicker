@@ -12,10 +12,10 @@ public class Ouvrier : MonoBehaviour
     public Bat1 bat1;
     #endregion
 
-    [SerializeField] List<OuvrierInfos> OuvrierInfos; //liste valeurs pour ouvrier upgrade
+    //[SerializeField] List<OuvrierInfos> OuvrierInfos; //liste valeurs pour ouvrier upgrade
     public TextMeshProUGUI ouvrier_text_price; //texte du prix
     
-    public int value_to_upgrade; //prix 
+    public int value_to_upgrade =10; //prix 
     int level = 0; //niveau de l'ouvrier
     
     void Update()
@@ -35,11 +35,11 @@ public class Ouvrier : MonoBehaviour
             maingame.arrow1 = false; //supprime la fleche
             R_and_P.brick_number -= value_to_upgrade; //retire les briques
             level++; // +1 niveau
-            ButtonOuvrierUpdate(OuvrierInfos[level]); //fonction pour update l'affichage
+            ButtonOuvrierUpdate(); //fonction pour update l'affichage
         }  
     }
 
-    public void ButtonOuvrierUpdate(OuvrierInfos _OuvrierInfos) //modifie l'affichae de l'ouvrier
+    public void ButtonOuvrierUpdate() //modifie l'affichae de l'ouvrier
     {
         //change le prix
         value_to_upgrade = value_to_upgrade * 2;

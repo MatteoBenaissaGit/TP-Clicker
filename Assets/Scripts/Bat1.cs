@@ -18,11 +18,13 @@ public class Bat1 : MonoBehaviour
     public Dialogue_Box _Dialog_box;
     public GameObject people_bloc_upgrade;
     public TextMeshProUGUI people_bloc_text;
+    public TextMeshProUGUI number_employee_text;
     #endregion
 
     public int level = 0; //niveau du bat
     public int value_to_upgrade = 0; //valeur pour ameliorer
     public int people_need_to_upgrade = 0;
+    public int number_of_employee = 0;
 
     [SerializeField] List<Bat1_Upgrades> Bat1_Upgrades; //usage de la classe Bat1_Upgrade pour modif l'affichage/les vlaeurs
 
@@ -33,7 +35,7 @@ public class Bat1 : MonoBehaviour
 
     public int Bat1_clicdamage = 1; //dégats du clic
 
-    //upgrade
+    #region upgrade
     public GameObject UpgradeBar;
     public TextMeshProUGUI UpgradeBar_Text;
     public bool isUpgrading = false;
@@ -44,6 +46,7 @@ public class Bat1 : MonoBehaviour
     float percent = 0f;
     float fill_before = 0f, fill_goal = 0f;
     public GameObject PrefabUpgradeEffect;
+    #endregion
 
     //fire
     public bool is_on_fire = false;
@@ -51,6 +54,7 @@ public class Bat1 : MonoBehaviour
     private void Start()
     {
         Bat1Update(Bat1_Upgrades[level]); //reference le bat au start avec son niveau 0
+        number_employee_text.text = number_of_employee.ToString();
     }
 
     void Update()
@@ -229,6 +233,8 @@ public class Bat1 : MonoBehaviour
             StartCoroutine(maingame.FireLauncher(10)); //fire après la fin du premier tuto
         }
         R_and_P.brick_augmentation += 1; //ajoute un ouvrier
+        number_of_employee++;
+        number_employee_text.text = number_of_employee.ToString(); //ajoute un employé sur l'etiquette
         // -> possiblité d'ajouter graphiquement un ouvrier ici
     }
 
