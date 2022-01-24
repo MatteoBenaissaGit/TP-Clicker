@@ -42,7 +42,7 @@ public class Ouvrier : MonoBehaviour
     public void ButtonOuvrierUpdate() //modifie l'affichae de l'ouvrier
     {
         //change le prix
-        value_to_upgrade = value_to_upgrade * 2;
+        value_to_upgrade = (int)(value_to_upgrade * 2);
         ouvrier_text_price.text = value_to_upgrade.ToString();
         bat1.AddOuvrier(); //ajoute un ouvrier
     }  

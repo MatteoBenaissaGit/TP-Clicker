@@ -19,6 +19,8 @@ public class Bat1 : MonoBehaviour
     public GameObject people_bloc_upgrade;
     public TextMeshProUGUI people_bloc_text;
     public TextMeshProUGUI number_employee_text;
+    public GameObject MaxBloc;
+    public GameObject PrefabKayou;
     #endregion
 
     public int level = 0; //niveau du bat
@@ -55,6 +57,7 @@ public class Bat1 : MonoBehaviour
     {
         Bat1Update(Bat1_Upgrades[level]); //reference le bat au start avec son niveau 0
         number_employee_text.text = number_of_employee.ToString();
+        MaxBloc.SetActive(false);
     }
 
     void Update()
@@ -135,6 +138,8 @@ public class Bat1 : MonoBehaviour
             _Dialog_box.dialog_number++;
             _Dialog_box.DialogUpdateCall();
             _Dialog_box.BumpBox();
+            //caillou explose
+            ShowKayou(Bat1_Pos);
         }
         if (level >= 2)
         {
@@ -219,6 +224,10 @@ public class Bat1 : MonoBehaviour
         bat1_update_sprite.sprite = _bat1upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
         people_need_to_upgrade = _bat1upgrade.PeopleNeed; //remet la variable du nombre de people dont on a besoin a jour
         people_bloc_text.text = people_need_to_upgrade.ToString() + " habitants requis";
+        if (Bat1_Upgrades.Count <= level +1)
+        {
+            MaxBloc.SetActive(true);
+        }
     }
 
     public void AddOuvrier() //ajoute un ouvrier
@@ -251,8 +260,28 @@ public class Bat1 : MonoBehaviour
                 go.transform.DOScale(0, 0f);
                 go.transform.DOComplete();
                 go.transform.DOScale(0.6f, 0.3f);
-                go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x + 0.5f, Hit_Pos.localPosition.y, 1);
+                go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x -0.5f , Hit_Pos.localPosition.y - 2f, 1);
                 go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f, 5f), Hit_Pos.localPosition.y - 2f, 1), Random.Range(2f, 4f), 1, 0.9f);
+                GameObject.Destroy(go, 0.8f);
+            }
+
+        }
+    }
+    public void ShowKayou(Transform Hit_Pos) //anim du clic 
+    {
+        //si il n'y a pas le feu
+        if (is_on_fire == false)
+        {
+            //affiche l'animation
+            for (int i = 0; i < 4; i++)
+            {;
+                GameObject go = GameObject.Instantiate(PrefabKayou, Hit_Pos, false); //genere la brique qui sort
+                //transform et anim de la pierre
+                go.transform.DOScale(0, 0f);
+                go.transform.DOComplete();
+                go.transform.DOScale(1f, 0.3f);
+                go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x - 0.5f, Hit_Pos.localPosition.y -2, 1);
+                go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + Random.Range(-5f, 5f), Hit_Pos.localPosition.y - Random.Range(1f,2f), 1), Random.Range(2f, 4f), 1, 0.9f);
                 GameObject.Destroy(go, 0.8f);
             }
 
