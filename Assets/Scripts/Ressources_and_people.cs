@@ -36,7 +36,7 @@ public class Ressources_and_people : MonoBehaviour
     private void Awake()
     {
         //setup valeurs
-        brick_number = 100;
+        brick_number = 10000;
         brick_number_before = 100;
         brick_number_temp = 100;
     }
@@ -58,7 +58,22 @@ public class Ressources_and_people : MonoBehaviour
 
         //affichage dynamique
         lerp += Time.deltaTime / duration;
-        brick_shown = (int)Mathf.Lerp(brick_number_before, brick_number, lerp); 
+        //affichage selon le nombre
+        if (brick_number < 10000) 
+        {
+            brick_shown = ((int)Mathf.Lerp(brick_number_before, brick_number, lerp));
+            brick.text = brick_shown.ToString(); //affichage des valeurs
+        }
+        else if (brick_number < 1000000)
+        {
+            brick_shown = (int)Mathf.Lerp(brick_number_before/1000, brick_number/ 1000, lerp);
+            brick.text = brick_shown.ToString() + " k"; //affichage des valeurs
+        }
+        else
+        {
+            brick_shown = (int)Mathf.Lerp(brick_number_before / 100000, brick_number / 100000, lerp);
+            brick.text = brick_shown.ToString() + " m"; //affichage des valeurs
+        }
         people_shown = (int)Mathf.Lerp(people_number_before, people_number, lerp); 
         //affichage des briques 1 par 1 quand fabriquée
         if (brick_number_temp < brick_shown)
@@ -71,7 +86,6 @@ public class Ressources_and_people : MonoBehaviour
             brick_number_temp = brick_shown;
         }
         //affichage des valeurs
-        brick.text = brick_shown.ToString();
         people.text = people_shown.ToString();
         //valeurs par seconde
         brick_per_second.text = "+ " + (brick_augmentation*brick_multiplier).ToString() + "/s";

@@ -23,7 +23,7 @@ public class FireScript : MonoBehaviour
             {
                 _fire.DOComplete();
                 _fire.transform.DOScale(new Vector3(_fire.transform.localScale.x - 0.5f, _fire.transform.localScale.y - 0.5f, 0), 0.2f); //réduit la taille
-                bat1.transform.DOPunchScale(new Vector3(0.02f, 0.02f, 0), 0.3f);
+                bat1.transform.DOPunchScale(new Vector3(-0.02f, -0.02f, 0), 0.3f);
                 if (_fire.transform.localScale.x <= 2f) //si le feu est détruit
                 {
                     bat1.FireEnd();
@@ -41,7 +41,7 @@ public class FireScript : MonoBehaviour
         } 
         if (bat1.is_on_fire == true)
         {
-            transform.position = new Vector3(bat1.transform.position.x, bat1.transform.position.y, 0); //suit la position du batiment 1
+            transform.position = new Vector3(bat1.transform.position.x + 0.5f, bat1.transform.position.y + 0.6f, 0); //suit la position du batiment 1
         }
     }
 }

@@ -13,11 +13,7 @@ public class EtiquetteShower : MonoBehaviour
     public Transform ScrollRect;
     public Transform FocusCamObject;
     bool isfocusing = false;
-
-    private void Start()
-    {
-        MouseIsOver();
-    }
+    public bool first_focus = false;
 
     void Update()
     {
@@ -25,16 +21,18 @@ public class EtiquetteShower : MonoBehaviour
         {
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
+            //si on clic sur le batiment ou sur le feu du batiment ça marche
             if (hit.collider == Collider_Etiquette)
             {
                 MouseIsOver();
                 isfocusing = true;
             }
-            else if (hit.collider == Collider_Fire)
+            else if (hit.collider == Collider_Fire && first_focus == false)
             {
                 isfocusing = true;
+                first_focus = true;
             }
-            else if (hit.collider != Collider_Fire)
+            else if (hit.collider != Collider_Etiquette && hit.collider != Collider_Fire)
             {
                 MouseIsExit();
             }

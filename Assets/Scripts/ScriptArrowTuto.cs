@@ -16,10 +16,14 @@ public class ScriptArrowTuto : MonoBehaviour
     public Transform pos4;
     public Transform pos5;
     #endregion
+
     float anim_end_pos; //valeur x pour les anim
     bool movement = false; //bool pour savoir si il faut aller a droite ou a gauche dans l'anim
+
     public bool bat1_buyed = false; //bool qui dit si le bat1 à été acheter ou non
     public bool bat1_used = false; //bool qui dit si le joueur a miner une brique
+    public bool bat2_buyed = false;
+
     float timer = 0f; //timer
     [HideInInspector] public int posarrow = 0; //valeur de pos pour dire ou se trouve la fleche
 

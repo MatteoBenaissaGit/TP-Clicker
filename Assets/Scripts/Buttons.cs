@@ -64,6 +64,11 @@ public class Buttons : MonoBehaviour
                     _arrow1.CheckPosArrow1();
                 }
             }
+            else
+            {
+                _arrow1.posarrow = 4;
+                _arrow1.CheckPosArrow1();
+            }
             
             //anim
             CheckRetract();

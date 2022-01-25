@@ -20,6 +20,8 @@ public class maingame : MonoBehaviour
 
     public Bat1 bat1;
     [SerializeField] Collider2D BAT1_ref;
+    public Bat2 bat2;
+    [SerializeField] Collider2D BAT2_ref;
 
     public static maingame Instance;
 
@@ -45,6 +47,10 @@ public class maingame : MonoBehaviour
             if (hit.collider == BAT1_ref)
             {
                 bat1.Hit(hit.transform);
+            }
+            if (hit.collider == BAT2_ref)
+            {
+                bat2.Hit(hit.transform);
             }
         }
         //desactive la fleche si le bool arrow1 est false
@@ -111,7 +117,7 @@ public class maingame : MonoBehaviour
             {
                 if (bat1.isUpgrading == false) //empeche de bruler un bat qui upgrade
                 {
-                    fire.transform.position = new Vector3(bat1.transform.position.x, bat1.transform.position.y, 0);
+                    fire.transform.position = new Vector3(bat1.transform.position.x +1f, bat1.transform.position.y +0.5f, 0);
                     fire.transform.DOScale(new Vector3(4, 4, 1), 0.4f);
                     bat1.FireStart();
                 }
