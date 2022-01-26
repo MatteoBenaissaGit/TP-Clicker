@@ -11,12 +11,11 @@ public class Buttons : MonoBehaviour
     [SerializeField] GameObject tab2;
     [SerializeField] RectTransform _tab1;
     [SerializeField] RectTransform _tab2;
-    int actualselect = 0; //tab selectionné
+    public int actualselect = 0; //tab selectionné
     #endregion
 
     public void Click1() //active l'écran 1 
     {
-        
         if (actualselect != 1)
         {
             //set des actifs/non actifs

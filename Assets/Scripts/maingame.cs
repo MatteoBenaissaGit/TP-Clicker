@@ -22,8 +22,12 @@ public class maingame : MonoBehaviour
     [SerializeField] Collider2D BAT1_ref;
     public Bat2 bat2;
     [SerializeField] Collider2D BAT2_ref;
+    public Bat3 bat3;
+    [SerializeField] Collider2D BAT3_ref;
 
     public static maingame Instance;
+
+    public Buttons buttons;
 
     private void Awake()
     {
@@ -38,7 +42,7 @@ public class maingame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && buttons.actualselect == 0)
         {
             //récupère la position du clic
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -51,6 +55,10 @@ public class maingame : MonoBehaviour
             if (hit.collider == BAT2_ref)
             {
                 bat2.Hit(hit.transform);
+            }
+            if (hit.collider == BAT3_ref)
+            {
+                bat3.Hit(hit.transform);
             }
         }
         //desactive la fleche si le bool arrow1 est false
@@ -100,7 +108,7 @@ public class maingame : MonoBehaviour
                 fire.transform.DOScale(new Vector3(4, 4, 1), 0.4f);
                 bat1.FireStart();
                 //dialog
-                bat1._Dialog_box.dialog_number++;
+                bat1._Dialog_box.dialog_number = 5;
                 bat1._Dialog_box.DialogUpdateCall();
                 bat1._Dialog_box.ActivateBox();
             }

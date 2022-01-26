@@ -12,12 +12,13 @@ public class EtiquetteShower : MonoBehaviour
     public Collider2D Collider_Fire;
     public Transform ScrollRect;
     public Transform FocusCamObject;
+    public Buttons buttons;
     bool isfocusing = false;
     public bool first_focus = false;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && buttons.actualselect == 0)
         {
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);

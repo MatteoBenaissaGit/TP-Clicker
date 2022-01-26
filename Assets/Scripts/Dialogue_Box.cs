@@ -34,11 +34,15 @@ public class Dialogue_Box : MonoBehaviour
     public void ActivateBox() //montre la boite de dialogue 
     {
         _box.DOComplete();
+        _box.DOScale(0, 0.5f);
+        _box.DOComplete();
         _box.DOScale(1, 0.5f);
     }
 
     public void DesactivateBox() //ferme la boite de dialogue 
     {
+        _box.DOComplete();
+        _box.DOScale(1, 0.5f);
         _box.DOComplete();
         _box.DOScale(0, 0.3f);
     }

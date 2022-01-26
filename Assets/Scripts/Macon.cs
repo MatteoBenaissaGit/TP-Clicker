@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Ouvrier : MonoBehaviour
+public class Macon : MonoBehaviour
 {
     #region referencement objets/script
     public Ressources_and_people R_and_P;
     public maingame maingame;
     public GameObject Blocage;
-    public Bat1 bat1;
+    public Bat3 bat3;
     #endregion
 
     //[SerializeField] List<OuvrierInfos> OuvrierInfos; //liste valeurs pour ouvrier upgrade
@@ -21,9 +21,13 @@ public class Ouvrier : MonoBehaviour
     void Update()
     {
         maingame.CheckCanBuy(ouvrier_text_price, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
+        if (bat3.level >= 1)
+        {
+            Blocage.SetActive(false);
+        }
     }
 
-    public void UnlockOuvrier() //debloque l'ouvrier
+    public void UnlockMacon() //debloque l'ouvrier
     {
         Blocage.SetActive(false);
     }
@@ -32,7 +36,6 @@ public class Ouvrier : MonoBehaviour
     {
         if (R_and_P.brick_number >= value_to_upgrade) //si achetable
         {
-            maingame.arrow1 = false; //supprime la fleche
             R_and_P.brick_number -= value_to_upgrade; //retire les briques
             level++; // +1 niveau
             ButtonOuvrierUpdate(); //fonction pour update l'affichage
@@ -42,9 +45,9 @@ public class Ouvrier : MonoBehaviour
     public void ButtonOuvrierUpdate() //modifie l'affichae de l'ouvrier
     {
         //change le prix
-        value_to_upgrade = (int)(value_to_upgrade * 1.5);
+        value_to_upgrade = (int)(value_to_upgrade * 2);
         ouvrier_text_price.text = value_to_upgrade.ToString();
-        bat1.AddOuvrier(); //ajoute un ouvrier
+        bat3.AddMacon(); //ajoute un ouvrier
     }  
 
 }

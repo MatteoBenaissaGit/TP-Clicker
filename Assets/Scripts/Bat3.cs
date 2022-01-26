@@ -5,19 +5,20 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Bat2 : MonoBehaviour
+public class Bat3 : MonoBehaviour
 {
     #region references d'objets/script
     public maingame maingame;
     public Bat1 bat1;
-    public Transform Bat2_Pos;
+    public Transform Bat3_Pos;
     public GameObject Visual;
     public Ressources_and_people R_and_P;
     public ScriptArrowTuto arrowtuto;
     public Dialogue_Box _Dialog_box;
-    public GameObject carrierreniv3_bloc_upgrade;
     public GameObject people_bloc_upgrade;
     public TextMeshProUGUI people_bloc_text;
+    public TextMeshProUGUI number_employee_text;
+    public GameObject ouvrierniv10_bloc;
     public GameObject MaxBloc;
     public GameObject PrefabKayou;
     #endregion
@@ -25,13 +26,14 @@ public class Bat2 : MonoBehaviour
     public int level = 0; //niveau du bat
     public int value_to_upgrade = 0; //valeur pour ameliorer
     public int people_need_to_upgrade = 0;
+    public int number_of_employee = 0;
 
-    [SerializeField] List<Bat1_Upgrades> Bat2_Upgrades; //usage de la classe Bat1_Upgrade pour modif l'affichage/les vlaeurs
+    [SerializeField] List<Bat1_Upgrades> Bat3_Upgrades; //usage de la classe Bat1_Upgrade pour modif l'affichage/les vlaeurs
 
-    public TextMeshProUGUI bat2_price_txt; //prix affiché sur bouton
-    public TextMeshProUGUI bat2_name; //nom affiché ingame
-    public TextMeshProUGUI bat2_update_description; //description affiché sur bouton
-    public Image bat2_update_sprite; //image affiché ingame
+    public TextMeshProUGUI bat3_price_txt; //prix affiché sur bouton
+    public TextMeshProUGUI bat3_name; //nom affiché ingame
+    public TextMeshProUGUI bat3_update_description; //description affiché sur bouton
+    public Image bat3_update_sprite; //image affiché ingame
 
     #region upgrade
     public GameObject UpgradeBar;
@@ -46,22 +48,36 @@ public class Bat2 : MonoBehaviour
     public GameObject PrefabUpgradeEffect;
     #endregion
 
+    bool dialog_done = false;
+
     //fire
     public bool is_on_fire = false;
 
     private void Start()
     {
-        Bat2Update(Bat2_Upgrades[level]); //reference le bat au start avec son niveau 0
+        Bat2Update(Bat3_Upgrades[level]); //reference le bat au start avec son niveau 0
         MaxBloc.SetActive(false);
     }
 
     void Update()
     {
-        if (bat1.level == 3)
+        //tuto launch
+        if (R_and_P.brick_augmentation >= 10 && R_and_P.brick_shown > 150 && dialog_done == false)
         {
-            carrierreniv3_bloc_upgrade.SetActive(false);
+            _Dialog_box.ActivateBox();
+            _Dialog_box.dialog_number = 8;
+            _Dialog_box.DialogUpdateCall();
+            dialog_done = true;
+            StartCoroutine(_Dialog_box.CloseAfterTimer(4f));
         }
-        maingame.CheckCanBuy(bat2_price_txt, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
+
+        maingame.CheckCanBuy(bat3_price_txt, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
+
+        //bloqueur 10ouvrier
+        if (R_and_P.brick_augmentation >= 10)
+        {
+            ouvrierniv10_bloc.SetActive(false);
+        }
         //bloqueur si pas assez de habitants pour améliorer
         if (R_and_P.people_shown < people_need_to_upgrade)
         {
@@ -118,18 +134,19 @@ public class Bat2 : MonoBehaviour
     {
         clic_bloc.SetActive(false);
         level++; //augmente le niveau
-        Bat2Update(Bat2_Upgrades[level]); //recupere les valeurs de l'update
+        Bat2Update(Bat3_Upgrades[level]); //recupere les valeurs de l'update
         #region action selon le niveau
         if (level == 1) //upgrade du niv1
         {
+            StartCoroutine(_Dialog_box.CloseAfterTimer(4f)); //dialogbox se ferme
             //caillou explose
-            ShowKayou(Bat2_Pos);
+            ShowKayou(Bat3_Pos);
             R_and_P.people_augmentation += 1;
         }
         if (level >= 2)
         {
-            ShowKayou(Bat2_Pos);
-            R_and_P.people_augmentation += 1;
+            ShowKayou(Bat3_Pos);
+            R_and_P.brick_multiplier = (int)(R_and_P.brick_multiplier*1.5);
         }
         #endregion
     }
@@ -182,19 +199,19 @@ public class Bat2 : MonoBehaviour
         Visual.GetComponent<Image>().sprite = _bat2upgrade.Sprite; //change le sprite du bat
         if (level > 1)
         {
-            value_to_upgrade = (int)(value_to_upgrade * 1.2); //change le prix
+            value_to_upgrade = (int)(value_to_upgrade * 1.25); //change le prix
         }
         else if (level == 1)
         {
-            value_to_upgrade = 20;
+            value_to_upgrade = 100;
         }
-        bat2_price_txt.text = (value_to_upgrade).ToString(); //change le prix
-        bat2_name.text = _bat2upgrade.Name; //change le nom
-        bat2_update_description.text = _bat2upgrade.Description; //change la description de l'update
-        bat2_update_sprite.sprite = _bat2upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
+        bat3_price_txt.text = (value_to_upgrade).ToString(); //change le prix
+        bat3_name.text = _bat2upgrade.Name; //change le nom
+        bat3_update_description.text = _bat2upgrade.Description; //change la description de l'update
+        bat3_update_sprite.sprite = _bat2upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
         people_need_to_upgrade = _bat2upgrade.PeopleNeed; //remet la variable du nombre de people dont on a besoin a jour
         people_bloc_text.text = people_need_to_upgrade.ToString() + " habitants requis";
-        if (Bat2_Upgrades.Count <= level +1)
+        if (Bat3_Upgrades.Count <= level +1)
         {
             MaxBloc.SetActive(true);
         }
@@ -213,8 +230,8 @@ public class Bat2 : MonoBehaviour
                 go.transform.DOScale(0, 0f);
                 go.transform.DOComplete();
                 go.transform.DOScale(0.75f, 0.3f);
-                go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x + 3f, Hit_Pos.localPosition.y + 2f, 1);
-                go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + (i - 2), Hit_Pos.localPosition.y - Random.Range(1f,2f), 1), Random.Range(2f, 4f), 1, 0.9f);
+                go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x + 7f, Hit_Pos.localPosition.y - 2.5f, 1);
+                go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + 7f + (i - 2), Hit_Pos.localPosition.y - Random.Range(1f,2f) - 2.5f, 1), Random.Range(2f, 4f), 1, 0.9f);
                 GameObject.Destroy(go, 0.8f);
             }
 
@@ -232,6 +249,13 @@ public class Bat2 : MonoBehaviour
         is_on_fire = false;
         maingame.FireEnd();
         Visual.GetComponent<Image>().color = new Color(255, 255, 255);
+    }
+
+    public void AddMacon()
+    {
+        R_and_P.brick_augmentation = (int)(R_and_P.brick_augmentation * 1.5);
+        number_of_employee++;
+        number_employee_text.text = number_of_employee.ToString();
     }
 
 }

@@ -38,6 +38,8 @@ public class Bat1 : MonoBehaviour
 
     public int Bat1_clicdamage = 1; //dégats du clic
 
+    bool dialogmaison = false; //pour tuto maison
+
     #region upgrade
     public GameObject UpgradeBar;
     public TextMeshProUGUI UpgradeBar_Text;
@@ -85,6 +87,17 @@ public class Bat1 : MonoBehaviour
         {
             Visual.GetComponent<Image>().color = new Color32(255, 131, 33, 255);
         }
+
+        //tuto bat2
+        if (level == 3 && R_and_P.brick_shown >= 100 && dialogmaison == false)
+        {
+            //dialog
+            _Dialog_box.ActivateBox();
+            _Dialog_box.dialog_number = 7;
+            _Dialog_box.DialogUpdateCall();
+            StartCoroutine(_Dialog_box.CloseAfterTimer(5f)); //dialogbox se ferme
+            dialogmaison = true;
+        }
     }
 
     public void MajUpgradeClic()
@@ -122,7 +135,7 @@ public class Bat1 : MonoBehaviour
                 arrowtuto.posarrow = 2; //modifie le placage de reference de la fleche
                 ouvrier.UnlockOuvrier(); //debloque l'ouvrier
                 arrowtuto.CheckPosArrow1(); //change la place de la fleche
-                _Dialog_box.dialog_number++;
+                _Dialog_box.dialog_number = 1;
                 _Dialog_box.DialogUpdateCall();
                 _Dialog_box.BumpBox();
             }
@@ -141,7 +154,7 @@ public class Bat1 : MonoBehaviour
             Bat1_Pos.position = new Vector2(Bat1_Pos.position.x, Bat1_Pos.position.y - 0.6f);
             Bat1_Pos.localScale = new Vector2(Bat1_Pos.localScale.x + 0.2f, Bat1_Pos.localScale.y + 0.2f);
             //dialog
-            _Dialog_box.dialog_number++;
+            _Dialog_box.dialog_number = 2;
             _Dialog_box.DialogUpdateCall();
             _Dialog_box.BumpBox();
             //caillou explose
@@ -149,14 +162,8 @@ public class Bat1 : MonoBehaviour
         }
         if (level >= 2)
         {
+            ShowKayou(Bat1_Pos);
             Bat1_clicdamage += 1;
-        }
-        if (level == 3)
-        {
-            //dialogue
-            _Dialog_box.ActivateBox();
-            _Dialog_box.dialog_number++;
-            _Dialog_box.DialogUpdateCall();
         }
         #endregion
     }
@@ -254,7 +261,7 @@ public class Bat1 : MonoBehaviour
         //dialog tuto
         if (R_and_P.brick_augmentation == 0) //si on a assez pour acheter l'ouvrier
         {
-            _Dialog_box.dialog_number++;
+            _Dialog_box.dialog_number = 4;
             _Dialog_box.DialogUpdateCall();
             _Dialog_box.BumpBox();
             StartCoroutine(_Dialog_box.CloseAfterTimer(3.5f)); //dialogbox se ferme
@@ -314,7 +321,6 @@ public class Bat1 : MonoBehaviour
         Fire_bloc.SetActive(true);
         Visual.GetComponent<Collider2D>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
-
     }
 
     public void FireEnd()
