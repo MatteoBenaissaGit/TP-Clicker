@@ -16,9 +16,12 @@ public class EtiquetteShower : MonoBehaviour
     bool isfocusing = false;
     public bool first_focus = false;
 
+    public GameObject Tab1;
+    public GameObject Tab2;
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && buttons.actualselect == 0)
+        if (Input.GetMouseButtonDown(0))
         {
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
@@ -44,11 +47,16 @@ public class EtiquetteShower : MonoBehaviour
             FocusCam();
             isfocusing = false;
         }
+        if (buttons.actualselect != 0)
+        {
+            ScrollRect.DORewind();
+        }
     }
 
     public void FocusCam()
     {
-        ScrollRect.DOMove(FocusCamObject.position, 0.5f);
+        if (buttons.actualselect == 0)
+            ScrollRect.DOMove(FocusCamObject.position, 0.5f);
     }
 
     public void MouseIsOver()

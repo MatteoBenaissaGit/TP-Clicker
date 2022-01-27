@@ -24,10 +24,14 @@ public class maingame : MonoBehaviour
     [SerializeField] Collider2D BAT2_ref;
     public Bat3 bat3;
     [SerializeField] Collider2D BAT3_ref;
+    public Bat4 bat4;
+    [SerializeField] Collider2D BAT4_ref;
 
     public static maingame Instance;
 
     public Buttons buttons;
+
+    public GameObject PrefabStar; 
 
     private void Awake()
     {
@@ -59,6 +63,10 @@ public class maingame : MonoBehaviour
             if (hit.collider == BAT3_ref)
             {
                 bat3.Hit(hit.transform);
+            }
+            if (hit.collider == BAT4_ref)
+            {
+                bat4.Hit(hit.transform);
             }
         }
         //desactive la fleche si le bool arrow1 est false
@@ -143,6 +151,28 @@ public class maingame : MonoBehaviour
         fire.transform.DOScale(new Vector3(0, 0, 1), 0.4f);
         StartCoroutine(FireLauncher(Random.Range(90, 180))); //fire relaunch
 
+    }
+
+    public void ShowStar(Transform Hit_Pos) //anim du clic 
+    {
+        //si il n'y a pas le feu
+        if (is_on_fire == false)
+        {
+            //affiche l'animation
+            for (int i = 0; i < Random.Range(3,6); i++)
+            {
+                GameObject go = GameObject.Instantiate(PrefabStar, Hit_Pos, false); //genere la brique qui sort
+                //transform et anim de la pierre
+                go.transform.DOScale(0, 0f);
+                go.transform.DOComplete();
+                go.transform.DOScale(0.25f, 0.3f);
+                transform.DORotate(new Vector3(transform.rotation.x + 1000, 0, 0), 1f);
+                go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x - 0.5f, Hit_Pos.localPosition.y - 2, 1);
+                go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + (i*2 - 4), Hit_Pos.localPosition.y - Random.Range(-2f, 2f), 1), Random.Range(1f, 3f), 1, 0.9f);
+                GameObject.Destroy(go, 0.8f);
+            }
+
+        }
     }
 
 }

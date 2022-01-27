@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class ClicUpgradeEffect : MonoBehaviour
+public class EtoileUpgrade : MonoBehaviour
 {
     public GameObject _prefab;
     public SpriteRenderer _sprite;
@@ -13,7 +13,6 @@ public class ClicUpgradeEffect : MonoBehaviour
 
     void Start()
     {
-        _prefab.transform.DOScale(2f, 0.6f);
         GameObject.Destroy(_prefab, 0.6f);
     }
     private void Update()
@@ -22,7 +21,7 @@ public class ClicUpgradeEffect : MonoBehaviour
         Color tmp = _sprite.color;
         tmp.a = color_value;
         _sprite.color = tmp;
-        color_value = color_value * 0.95f; //valeur
+        color_value = color_value * 0.99f; //valeur
     }
-
+    
 }

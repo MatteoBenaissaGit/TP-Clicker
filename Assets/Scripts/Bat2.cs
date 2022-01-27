@@ -153,6 +153,7 @@ public class Bat2 : MonoBehaviour
         }
         else if (isUpgrading == true)
         {
+            maingame.ShowStar(Bat2_Pos);
             //upgrade
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;

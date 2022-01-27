@@ -36,7 +36,7 @@ public class Ressources_and_people : MonoBehaviour
     private void Awake()
     {
         //setup valeurs
-        brick_number = 100;
+        brick_number = 10000;
         brick_number_before = 100;
         brick_number_temp = 100;
     }
@@ -47,11 +47,8 @@ public class Ressources_and_people : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 1f)
         {
-            if (bat1.is_on_fire == false) //si la carrière ne brule pas
-            {
-                UpdateBrick_and_PeopleNumber(); //maj affichage
-                AddBrickAndPeople(); //ajoute les valeurs auto
-            }
+            UpdateBrick_and_PeopleNumber(); //maj affichage
+            AddBrickAndPeople(); //ajoute les valeurs auto
             timer = 0f;
             lerp = 0f;
         }
@@ -117,7 +114,10 @@ public class Ressources_and_people : MonoBehaviour
 
     void UpdateBrick_and_PeopleNumber() //reajuste les variables qui servent de referentiel à l'affichage dynamique
     {
-        brick_number_before = brick_number;
+        if (bat1.is_on_fire == false) //si la carrière ne brule pas
+        {
+            brick_number_before = brick_number;
+        }
         people_number_before = people_number;
     }
 

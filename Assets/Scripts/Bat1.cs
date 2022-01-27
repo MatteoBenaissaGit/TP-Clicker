@@ -206,6 +206,7 @@ public class Bat1 : MonoBehaviour
         else if (isUpgrading == true)
         {
             //upgrade
+            maingame.ShowStar(Bat1_Pos);
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;
             upgrade_count_number++;
@@ -318,6 +319,9 @@ public class Bat1 : MonoBehaviour
     {
         is_on_fire = true;
         Visual.GetComponent<Image>().color = new Color(244, 102, 27);
+        R_and_P.brick_number_temp = R_and_P.brick_shown;
+        R_and_P.brick_number_before = R_and_P.brick_shown;
+        R_and_P.brick_number = (int)R_and_P.brick_shown;
         Fire_bloc.SetActive(true);
         Visual.GetComponent<Collider2D>().enabled = false;
         GetComponent<Collider2D>().enabled = false;

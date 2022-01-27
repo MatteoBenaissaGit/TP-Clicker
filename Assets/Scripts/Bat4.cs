@@ -5,12 +5,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Bat3 : MonoBehaviour
+public class Bat4 : MonoBehaviour
 {
     #region references d'objets/script
     public maingame maingame;
     public Bat1 bat1;
-    public Transform Bat3_Pos;
+    public Transform Bat4_Pos;
     public GameObject Visual;
     public Ressources_and_people R_and_P;
     public ScriptArrowTuto arrowtuto;
@@ -18,7 +18,7 @@ public class Bat3 : MonoBehaviour
     public GameObject people_bloc_upgrade;
     public TextMeshProUGUI people_bloc_text;
     public TextMeshProUGUI number_employee_text;
-    public GameObject ouvrierniv10_bloc;
+    public GameObject mais10pp200bloc;
     public GameObject MaxBloc;
     public GameObject PrefabKayou;
     #endregion
@@ -28,12 +28,12 @@ public class Bat3 : MonoBehaviour
     public int people_need_to_upgrade = 0;
     public int number_of_employee = 0;
 
-    [SerializeField] List<Bat1_Upgrades> Bat3_Upgrades; //usage de la classe Bat1_Upgrade pour modif l'affichage/les vlaeurs
+    [SerializeField] List<Bat1_Upgrades> Bat4_Upgrades; //usage de la classe Bat1_Upgrade pour modif l'affichage/les vlaeurs
 
-    public TextMeshProUGUI bat3_price_txt; //prix affiché sur bouton
-    public TextMeshProUGUI bat3_name; //nom affiché ingame
-    public TextMeshProUGUI bat3_update_description; //description affiché sur bouton
-    public Image bat3_update_sprite; //image affiché ingame
+    public TextMeshProUGUI bat4_price_txt; //prix affiché sur bouton
+    public TextMeshProUGUI bat4_name; //nom affiché ingame
+    public TextMeshProUGUI bat4_update_description; //description affiché sur bouton
+    public Image bat4_update_sprite; //image affiché ingame
 
     #region upgrade
     public GameObject UpgradeBar;
@@ -50,33 +50,35 @@ public class Bat3 : MonoBehaviour
 
     bool dialog_done = false;
 
+    public Bat3 bat3;
+
     //fire
     public bool is_on_fire = false;
 
     private void Start()
     {
-        Bat2Update(Bat3_Upgrades[level]); //reference le bat au start avec son niveau 0
+        Bat4Update(Bat4_Upgrades[level]); //reference le bat au start avec son niveau 0
         MaxBloc.SetActive(false);
     }
 
     void Update()
     {
         //tuto launch
-        if (R_and_P.brick_augmentation >= 10 && R_and_P.brick_shown > 150 && dialog_done == false)
+        if (R_and_P.people_number >= 200 && bat3.level >= 7 && dialog_done == false)
         {
             _Dialog_box.ActivateBox();
-            _Dialog_box.dialog_number = 8;
+            _Dialog_box.dialog_number = 9;
             _Dialog_box.DialogUpdateCall();
             dialog_done = true;
-            StartCoroutine(_Dialog_box.CloseAfterTimer(4f));
+            StartCoroutine(_Dialog_box.CloseAfterTimer(5f));
         }
 
-        maingame.CheckCanBuy(bat3_price_txt, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
+        maingame.CheckCanBuy(bat4_price_txt, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
 
         //bloqueur 10ouvrier
-        if (R_and_P.brick_augmentation >= 10)
+        if (bat3.level >= 8)
         {
-            ouvrierniv10_bloc.SetActive(false);
+            mais10pp200bloc.SetActive(false);
         }
         //bloqueur si pas assez de habitants pour améliorer
         if (R_and_P.people_shown < people_need_to_upgrade)
@@ -106,6 +108,7 @@ public class Bat3 : MonoBehaviour
     }
     public void UpgradeNextLevel() //passe au niveau suivant
     {
+        Debug.Log("NIGGA");
         if (R_and_P.brick_number >= value_to_upgrade)
         {
             R_and_P.brick_number -= value_to_upgrade; //enleve le prix au nb de brick
@@ -134,18 +137,18 @@ public class Bat3 : MonoBehaviour
     {
         clic_bloc.SetActive(false);
         level++; //augmente le niveau
-        Bat2Update(Bat3_Upgrades[level]); //recupere les valeurs de l'update
+        Bat4Update(Bat4_Upgrades[level]); //recupere les valeurs de l'update
         #region action selon le niveau
         if (level == 1) //upgrade du niv1
         {
             StartCoroutine(_Dialog_box.CloseAfterTimer(4f)); //dialogbox se ferme
             //caillou explose
-            ShowKayou(Bat3_Pos);
+            ShowKayou(Bat4_Pos);
             R_and_P.people_augmentation += 1;
         }
         if (level >= 2)
         {
-            ShowKayou(Bat3_Pos);
+            ShowKayou(Bat4_Pos);
             bat1.Bat1_clicdamage += 2;
         }
         #endregion
@@ -170,7 +173,7 @@ public class Bat3 : MonoBehaviour
         }
         else if (isUpgrading == true)
         {
-            maingame.ShowStar(Bat3_Pos);
+            maingame.ShowStar(Bat4_Pos);
             //upgrade
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;
@@ -195,24 +198,24 @@ public class Bat3 : MonoBehaviour
         }
     }
 
-    public void Bat2Update(Bat1_Upgrades _bat2upgrade) //modifier visuelement le bat
+    public void Bat4Update(Bat1_Upgrades _bat2upgrade) //modifier visuelement le bat
     { 
         Visual.GetComponent<Image>().sprite = _bat2upgrade.Sprite; //change le sprite du bat
         if (level > 1)
         {
-            value_to_upgrade = (int)(value_to_upgrade * 1.25); //change le prix
+            value_to_upgrade = (int)(value_to_upgrade * 1.13); //change le prix
         }
         else if (level == 1)
         {
-            value_to_upgrade = 100;
+            value_to_upgrade = 250;
         }
-        bat3_price_txt.text = (value_to_upgrade).ToString(); //change le prix
-        bat3_name.text = _bat2upgrade.Name; //change le nom
-        bat3_update_description.text = _bat2upgrade.Description; //change la description de l'update
-        bat3_update_sprite.sprite = _bat2upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
+        bat4_price_txt.text = (value_to_upgrade).ToString(); //change le prix
+        bat4_name.text = _bat2upgrade.Name; //change le nom
+        bat4_update_description.text = _bat2upgrade.Description; //change la description de l'update
+        bat4_update_sprite.sprite = _bat2upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
         people_need_to_upgrade = _bat2upgrade.PeopleNeed; //remet la variable du nombre de people dont on a besoin a jour
         people_bloc_text.text = people_need_to_upgrade.ToString() + " habitants requis";
-        if (Bat3_Upgrades.Count <= level +1)
+        if (Bat4_Upgrades.Count <= level +1)
         {
             MaxBloc.SetActive(true);
         }
