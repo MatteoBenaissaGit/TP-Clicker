@@ -22,8 +22,14 @@ public class Dialogue_Box : MonoBehaviour
     }
     void Start()
     {
+        StartCoroutine(StartingDialog(2));
+    }
+
+    public IEnumerator StartingDialog(float time)
+    {
+        yield return new WaitForSeconds(time);
         DialogUpdate(DialogInfos[dialog_number]);
-        ActivateBox();
+        ActivateBox(); ;
     }
 
     public void DialogUpdateCall()

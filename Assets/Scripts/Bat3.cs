@@ -62,7 +62,7 @@ public class Bat3 : MonoBehaviour
     void Update()
     {
         //tuto launch
-        if (R_and_P.brick_augmentation >= 10 && R_and_P.brick_shown > 150 && dialog_done == false)
+        if (R_and_P.brick_augmentation >= 10 && R_and_P.brick_number > 150 && dialog_done == false)
         {
             _Dialog_box.ActivateBox();
             _Dialog_box.dialog_number = 8;
@@ -205,12 +205,14 @@ public class Bat3 : MonoBehaviour
         {
             value_to_upgrade = 100;
         }
+
         bat3_price_txt.text = (value_to_upgrade).ToString(); //change le prix
         bat3_name.text = _bat2upgrade.Name; //change le nom
         bat3_update_description.text = _bat2upgrade.Description; //change la description de l'update
         bat3_update_sprite.sprite = _bat2upgrade.SpriteUpdate; //change le sprite de l'icone dans l'update
         people_need_to_upgrade = _bat2upgrade.PeopleNeed; //remet la variable du nombre de people dont on a besoin a jour
         people_bloc_text.text = people_need_to_upgrade.ToString() + " habitants requis";
+
         if (Bat3_Upgrades.Count <= level +1)
         {
             MaxBloc.SetActive(true);

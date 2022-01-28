@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class maingame : MonoBehaviour
 {
@@ -41,6 +42,12 @@ public class maingame : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(StartingArrow(2));
+    }
+
+    public IEnumerator StartingArrow(float time)
+    {
+        yield return new WaitForSeconds(time);
         PrefabArrowTuto.SetActive(true);
     }
 
@@ -168,6 +175,12 @@ public class maingame : MonoBehaviour
             GameObject.Destroy(go, 0.8f);
         }
 
+    }
+
+    public void GoToMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
 }

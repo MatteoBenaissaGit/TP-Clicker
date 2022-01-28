@@ -21,6 +21,7 @@ public class Bat4 : MonoBehaviour
     public GameObject mais10pp200bloc;
     public GameObject MaxBloc;
     public GameObject PrefabKayou;
+    public GameObject menuoption;
     #endregion
 
     public int level = 0; //niveau du bat
@@ -64,7 +65,7 @@ public class Bat4 : MonoBehaviour
     void Update()
     {
         //tuto launch
-        if (R_and_P.people_number >= 200 && bat2.level >= 7 && dialog_done == false)
+        if (R_and_P.people_number >= 200 && bat2.level >= 7 && R_and_P.brick_number >= 500 && dialog_done == false)
         {
             _Dialog_box.ActivateBox();
             _Dialog_box.dialog_number = 9;
@@ -248,6 +249,20 @@ public class Bat4 : MonoBehaviour
         R_and_P.people_augmentation = (int)(R_and_P.brick_augmentation * 1.05);
         number_of_employee++;
         number_employee_text.text = number_of_employee.ToString();
+    }
+
+    public void optionlaunch()
+    {
+        if (menuoption.activeSelf == false)
+        {
+            menuoption.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            menuoption.SetActive(false);
+        }
     }
 
 }
