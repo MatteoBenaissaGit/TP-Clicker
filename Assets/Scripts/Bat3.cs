@@ -138,10 +138,9 @@ public class Bat3 : MonoBehaviour
         #region action selon le niveau
         if (level == 1) //upgrade du niv1
         {
-            StartCoroutine(_Dialog_box.CloseAfterTimer(4f)); //dialogbox se ferme
             //caillou explose
             ShowKayou(Bat3_Pos);
-            R_and_P.people_augmentation += 1;
+
         }
         if (level >= 2)
         {
@@ -170,7 +169,7 @@ public class Bat3 : MonoBehaviour
         }
         else if (isUpgrading == true)
         {
-            maingame.ShowStar(Bat3_Pos);
+            maingame.ShowStar(Bat3_Pos, 6f, -2f);
             //upgrade
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;

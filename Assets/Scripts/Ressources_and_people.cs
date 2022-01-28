@@ -36,7 +36,7 @@ public class Ressources_and_people : MonoBehaviour
     private void Awake()
     {
         //setup valeurs
-        brick_number = 10000;
+        brick_number = 100;
         brick_number_before = 100;
         brick_number_temp = 100;
     }

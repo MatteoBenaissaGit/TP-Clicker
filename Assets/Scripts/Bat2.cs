@@ -44,6 +44,7 @@ public class Bat2 : MonoBehaviour
     float percent = 0f;
     float fill_before = 0f, fill_goal = 0f;
     public GameObject PrefabUpgradeEffect;
+    public MaisonetteScript maisonette;
     #endregion
 
     //fire
@@ -130,6 +131,7 @@ public class Bat2 : MonoBehaviour
         {
             ShowKayou(Bat2_Pos);
             R_and_P.people_augmentation += 1;
+            maisonette.MaisonetteNext();
         }
         #endregion
     }
@@ -153,7 +155,7 @@ public class Bat2 : MonoBehaviour
         }
         else if (isUpgrading == true)
         {
-            maingame.ShowStar(Bat2_Pos);
+            maingame.ShowStar(Bat2_Pos, 2f, 2f);
             //upgrade
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;

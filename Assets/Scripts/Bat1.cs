@@ -206,7 +206,10 @@ public class Bat1 : MonoBehaviour
         else if (isUpgrading == true)
         {
             //upgrade
-            maingame.ShowStar(Bat1_Pos);
+            if (level == 0)
+                maingame.ShowStar(Bat1_Pos, -0.5f, -2f);
+            else
+                maingame.ShowStar(Bat1_Pos, -0.5f, 0);
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;
             upgrade_count_number++;

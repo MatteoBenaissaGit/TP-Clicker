@@ -24,7 +24,7 @@ public class Bat4 : MonoBehaviour
     #endregion
 
     public int level = 0; //niveau du bat
-    public int value_to_upgrade = 0; //valeur pour ameliorer
+    public int value_to_upgrade = 500; //valeur pour ameliorer
     public int people_need_to_upgrade = 0;
     public int number_of_employee = 0;
 
@@ -50,7 +50,7 @@ public class Bat4 : MonoBehaviour
 
     bool dialog_done = false;
 
-    public Bat3 bat3;
+    public Bat2 bat2;
 
     //fire
     public bool is_on_fire = false;
@@ -64,22 +64,19 @@ public class Bat4 : MonoBehaviour
     void Update()
     {
         //tuto launch
-        if (R_and_P.people_number >= 200 && bat3.level >= 7 && dialog_done == false)
+        if (R_and_P.people_number >= 200 && bat2.level >= 7 && dialog_done == false)
         {
             _Dialog_box.ActivateBox();
             _Dialog_box.dialog_number = 9;
             _Dialog_box.DialogUpdateCall();
             dialog_done = true;
             StartCoroutine(_Dialog_box.CloseAfterTimer(5f));
+            //bloqueur
+            mais10pp200bloc.SetActive(false);
         }
 
         maingame.CheckCanBuy(bat4_price_txt, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
 
-        //bloqueur 10ouvrier
-        if (bat3.level >= 8)
-        {
-            mais10pp200bloc.SetActive(false);
-        }
         //bloqueur si pas assez de habitants pour améliorer
         if (R_and_P.people_shown < people_need_to_upgrade)
         {
@@ -108,7 +105,6 @@ public class Bat4 : MonoBehaviour
     }
     public void UpgradeNextLevel() //passe au niveau suivant
     {
-        Debug.Log("NIGGA");
         if (R_and_P.brick_number >= value_to_upgrade)
         {
             R_and_P.brick_number -= value_to_upgrade; //enleve le prix au nb de brick
@@ -144,12 +140,14 @@ public class Bat4 : MonoBehaviour
             StartCoroutine(_Dialog_box.CloseAfterTimer(4f)); //dialogbox se ferme
             //caillou explose
             ShowKayou(Bat4_Pos);
-            R_and_P.people_augmentation += 1;
+            R_and_P.people_augmentation = (int)(R_and_P.people_augmentation * 1.25f);
+            R_and_P.brick_augmentation = (int)(R_and_P.brick_augmentation * 1.25f);
         }
         if (level >= 2)
         {
             ShowKayou(Bat4_Pos);
-            bat1.Bat1_clicdamage += 2;
+            R_and_P.people_augmentation = (int)(R_and_P.people_augmentation * 1.25f);
+            R_and_P.brick_augmentation = (int)(R_and_P.brick_augmentation * 1.25f);
         }
         #endregion
     }
@@ -173,7 +171,7 @@ public class Bat4 : MonoBehaviour
         }
         else if (isUpgrading == true)
         {
-            maingame.ShowStar(Bat4_Pos);
+            maingame.ShowStar(Bat4_Pos,-7f,-2f);
             //upgrade
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;
@@ -199,7 +197,9 @@ public class Bat4 : MonoBehaviour
     }
 
     public void Bat4Update(Bat1_Upgrades _bat2upgrade) //modifier visuelement le bat
-    { 
+    {
+        if (level == 0)
+            value_to_upgrade = 500;
         Visual.GetComponent<Image>().sprite = _bat2upgrade.Sprite; //change le sprite du bat
         if (level > 1)
         {
@@ -244,7 +244,8 @@ public class Bat4 : MonoBehaviour
 
     public void AddMacon()
     {
-        R_and_P.brick_augmentation = (int)(R_and_P.brick_augmentation * 1.5);
+        R_and_P.brick_augmentation = (int)(R_and_P.brick_augmentation * 1.05);
+        R_and_P.people_augmentation = (int)(R_and_P.brick_augmentation * 1.05);
         number_of_employee++;
         number_employee_text.text = number_of_employee.ToString();
     }

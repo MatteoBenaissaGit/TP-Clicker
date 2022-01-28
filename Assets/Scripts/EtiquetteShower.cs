@@ -16,8 +16,8 @@ public class EtiquetteShower : MonoBehaviour
     bool isfocusing = false;
     public bool first_focus = false;
 
-    public GameObject Tab1;
-    public GameObject Tab2;
+    public BoxCollider2D Tab1;
+    public BoxCollider2D Tab2;
 
     void Update()
     {
@@ -26,37 +26,34 @@ public class EtiquetteShower : MonoBehaviour
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
             //si on clic sur le batiment ou sur le feu du batiment ça marche
-            if (hit.collider == Collider_Etiquette)
+            if (hit.collider != Tab1 && hit.collider != Tab2)
             {
-                MouseIsOver();
-                isfocusing = true;
+                if (hit.collider == Collider_Etiquette)
+                {
+                    MouseIsOver();
+                    isfocusing = true;
+                }
+                else if (hit.collider == Collider_Fire && first_focus == false && name == "Bat1")
+                {
+                    isfocusing = true;
+                    first_focus = true;
+                }
+                else if (hit.collider != Collider_Etiquette && hit.collider != Collider_Fire)
+                {
+                    MouseIsExit();
+                }
             }
-            else if (hit.collider == Collider_Fire && first_focus == false)
-            {
-                isfocusing = true;
-                first_focus = true;
-            }
-            else if (hit.collider != Collider_Etiquette && hit.collider != Collider_Fire)
-            {
-                MouseIsExit();
-            }
-
         }
         if (isfocusing == true)
         {
             FocusCam();
             isfocusing = false;
         }
-        if (buttons.actualselect != 0)
-        {
-            ScrollRect.DORewind();
-        }
     }
 
     public void FocusCam()
     {
-        if (buttons.actualselect == 0)
-            ScrollRect.DOMove(FocusCamObject.position, 0.5f);
+        ScrollRect.DOMove(FocusCamObject.position, 0.5f);
     }
 
     public void MouseIsOver()

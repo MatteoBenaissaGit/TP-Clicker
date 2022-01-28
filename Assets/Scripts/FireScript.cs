@@ -9,7 +9,6 @@ public class FireScript : MonoBehaviour
     public Transform _fire;
     public Collider2D firecoll;
     public Bat1 bat1;
-    float fire_multiplicator = 1f;
 
     private void Update()
     {

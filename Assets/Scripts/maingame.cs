@@ -9,7 +9,7 @@ public class maingame : MonoBehaviour
 {
     public GameObject PrefabArrowTuto;
     [HideInInspector] public bool arrow1 = true;
-    
+
     public GameObject fire;
     public FireScript firescript;
     public bool is_on_fire = false;
@@ -31,7 +31,7 @@ public class maingame : MonoBehaviour
 
     public Buttons buttons;
 
-    public GameObject PrefabStar; 
+    public GameObject PrefabStar;
 
     private void Awake()
     {
@@ -133,7 +133,7 @@ public class maingame : MonoBehaviour
             {
                 if (bat1.isUpgrading == false) //empeche de bruler un bat qui upgrade
                 {
-                    fire.transform.position = new Vector3(bat1.transform.position.x +1f, bat1.transform.position.y +0.5f, 0);
+                    fire.transform.position = new Vector3(bat1.transform.position.x + 1f, bat1.transform.position.y + 0.5f, 0);
                     fire.transform.DOScale(new Vector3(4, 4, 1), 0.4f);
                     bat1.FireStart();
                 }
@@ -142,7 +142,7 @@ public class maingame : MonoBehaviour
                     StartCoroutine(FireLauncher(Random.Range(15, 30))); //fire relaunch
                 }
             }
-        } 
+        }
     }
 
     public void FireEnd()
@@ -153,26 +153,21 @@ public class maingame : MonoBehaviour
 
     }
 
-    public void ShowStar(Transform Hit_Pos) //anim du clic 
+    public void ShowStar(Transform Hit_Pos, float xx, float yy) //anim du clic 
     {
-        //si il n'y a pas le feu
-        if (is_on_fire == false)
+        //affiche l'animation
+        for (int i = 0; i < Random.Range(3, 6); i++)
         {
-            //affiche l'animation
-            for (int i = 0; i < Random.Range(3,6); i++)
-            {
-                GameObject go = GameObject.Instantiate(PrefabStar, Hit_Pos, false); //genere la brique qui sort
-                //transform et anim de la pierre
-                go.transform.DOScale(0, 0f);
-                go.transform.DOComplete();
-                go.transform.DOScale(0.25f, 0.3f);
-                transform.DORotate(new Vector3(transform.rotation.x + 1000, 0, 0), 1f);
-                go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x - 0.5f, Hit_Pos.localPosition.y - 2, 1);
-                go.transform.DOLocalJump(new Vector3(Hit_Pos.localPosition.x + (i*2 - 4), Hit_Pos.localPosition.y - Random.Range(-2f, 2f), 1), Random.Range(1f, 3f), 1, 0.9f);
-                GameObject.Destroy(go, 0.8f);
-            }
-
+            GameObject go = GameObject.Instantiate(PrefabStar, Hit_Pos, false); //genere la brique qui sort
+            go.transform.localPosition = new Vector3(Hit_Pos.localPosition.x + xx, Hit_Pos.localPosition.y + yy, 1);
+            //transform et anim de la pierre
+            go.transform.DOScale(0, 0f);
+            go.transform.DOComplete();
+            go.transform.DOScale(0.25f, 0.3f);
+            go.transform.DOLocalJump(new Vector3(Hit_Pos.position.x + Random.Range(-4,4), Hit_Pos.position.y - Random.Range(-1f, 2f), 1), Random.Range(1f, 3f), 1, 0.9f);
+            GameObject.Destroy(go, 0.8f);
         }
+
     }
 
 }
