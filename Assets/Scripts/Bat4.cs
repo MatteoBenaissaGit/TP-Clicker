@@ -25,7 +25,7 @@ public class Bat4 : MonoBehaviour
     #endregion
 
     public int level = 0; //niveau du bat
-    public int value_to_upgrade = 500; //valeur pour ameliorer
+    public int value_to_upgrade = 250; //valeur pour ameliorer
     public int people_need_to_upgrade = 0;
     public int number_of_employee = 0;
 
@@ -64,14 +64,17 @@ public class Bat4 : MonoBehaviour
 
     void Update()
     {
-        //tuto launch
-        if (R_and_P.people_number >= 200 && bat2.level >= 7 && R_and_P.brick_number >= 500 && dialog_done == false)
+        //tuto launch & bloqueur
+        if (R_and_P.people_number >= 200 && bat2.level >= 7)
         {
-            _Dialog_box.ActivateBox();
-            _Dialog_box.dialog_number = 9;
-            _Dialog_box.DialogUpdateCall();
-            dialog_done = true;
-            StartCoroutine(_Dialog_box.CloseAfterTimer(5f));
+            if (dialog_done == false && R_and_P.brick_number >= 250)
+            {
+                _Dialog_box.ActivateBox();
+                _Dialog_box.dialog_number = 9;
+                _Dialog_box.DialogUpdateCall();
+                dialog_done = true;
+                StartCoroutine(_Dialog_box.CloseAfterTimer(5f));
+            }
             //bloqueur
             mais10pp200bloc.SetActive(false);
         }

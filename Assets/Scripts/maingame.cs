@@ -27,6 +27,8 @@ public class maingame : MonoBehaviour
     [SerializeField] Collider2D BAT3_ref;
     public Bat4 bat4;
     [SerializeField] Collider2D BAT4_ref;
+    public Bat5 bat5;
+    [SerializeField] Collider2D BAT5_ref;
 
     public static maingame Instance;
 
@@ -74,6 +76,10 @@ public class maingame : MonoBehaviour
             if (hit.collider == BAT4_ref)
             {
                 bat4.Hit(hit.transform);
+            }
+            if (hit.collider == BAT5_ref)
+            {
+                bat5.Hit(hit.transform);
             }
         }
         //desactive la fleche si le bool arrow1 est false

@@ -62,7 +62,7 @@ public class Bat3 : MonoBehaviour
     void Update()
     {
         //tuto launch
-        if (R_and_P.brick_augmentation >= 10 && R_and_P.brick_number > 150 && dialog_done == false)
+        if (R_and_P.brick_augmentation >= 10 && R_and_P.brick_number > 250 && dialog_done == false)
         {
             _Dialog_box.ActivateBox();
             _Dialog_box.dialog_number = 8;

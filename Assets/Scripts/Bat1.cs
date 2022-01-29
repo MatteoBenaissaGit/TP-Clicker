@@ -87,7 +87,6 @@ public class Bat1 : MonoBehaviour
         {
             Visual.GetComponent<Image>().color = new Color32(255, 131, 33, 255);
         }
-
         //tuto bat2
         if (level == 3 && R_and_P.brick_shown >= 100 && dialogmaison == false)
         {
@@ -325,7 +324,8 @@ public class Bat1 : MonoBehaviour
         R_and_P.brick_number_temp = R_and_P.brick_shown;
         R_and_P.brick_number_before = R_and_P.brick_shown;
         R_and_P.brick_number = (int)R_and_P.brick_shown;
-        Fire_bloc.SetActive(true);
+        if (MaxBloc.activeSelf == false)
+            Fire_bloc.SetActive(true);
         Visual.GetComponent<Collider2D>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
     }

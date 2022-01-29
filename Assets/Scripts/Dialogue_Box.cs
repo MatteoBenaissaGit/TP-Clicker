@@ -68,7 +68,7 @@ public class Dialogue_Box : MonoBehaviour
         {
             _desc.fontSize = 0.44f;
         }
-        if (_desc.text.Length > 100)
+        if (_desc.text.Length > 90)
         {
             _desc.fontSize = 0.38f;
         }
