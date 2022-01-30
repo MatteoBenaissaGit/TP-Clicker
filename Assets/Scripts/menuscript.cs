@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menuscript : MonoBehaviour
 {
     public Transform credits;
     public Collider2D window;
     public Transform _window;
+
+    public Image fondblack;
+    bool fade_black = false;
+    float color_value = 0.01f;
+
+    public Image textintro;
+    bool text_intro = false;
+    float textintro_color_value = 0.01f;
+    bool text_intro_unshow = false;
 
     private void Update()
     {
@@ -22,6 +32,30 @@ public class menuscript : MonoBehaviour
             {
                 PunchWindow();
             }
+        }
+        if (fade_black == true)
+        {
+            //diminue petit à petit l'opacité
+            Color tmp = fondblack.color;
+            tmp.a = color_value;
+            fondblack.color = tmp;
+            color_value = color_value * 1.05f; //valeur
+        }
+        if (text_intro == true)
+        {
+            //diminue petit à petit l'opacité
+            Color tmp = textintro.color;
+            tmp.a = textintro_color_value;
+            textintro.color = tmp;
+            textintro_color_value = textintro_color_value * 1.05f; //valeur
+        }
+        if (text_intro_unshow == true)
+        {
+            //diminue petit à petit l'opacité
+            Color tmp = textintro.color;
+            tmp.a = textintro_color_value;
+            textintro.color = tmp;
+            textintro_color_value = textintro_color_value * 0.95f; //valeur
         }
     }
 
@@ -61,6 +95,28 @@ public class menuscript : MonoBehaviour
 
     public void GoToGame()
     {
+        fade_black = true;
+        StartCoroutine(TextShow());
+    }
+
+    public IEnumerator TextShow()
+    {
+        yield return new WaitForSeconds(2f);
+        text_intro = true;
+        StartCoroutine(TextUnshow());
+    }
+
+    public IEnumerator TextUnshow()
+    {
+        yield return new WaitForSeconds(2f);
+        text_intro = false;
+        text_intro_unshow = true;
+        StartCoroutine(ChangeRoom());
+    }
+
+    public IEnumerator ChangeRoom()
+    {
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
 }

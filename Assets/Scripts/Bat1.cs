@@ -59,7 +59,6 @@ public class Bat1 : MonoBehaviour
 
     private void Start()
     {
-        EtiquetteScript.MouseIsOver();
         Bat1Update(Bat1_Upgrades[level]); //reference le bat au start avec son niveau 0
         number_employee_text.text = number_of_employee.ToString();
         MaxBloc.SetActive(false);

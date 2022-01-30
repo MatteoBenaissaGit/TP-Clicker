@@ -19,9 +19,12 @@ public class EtiquetteShower : MonoBehaviour
     public BoxCollider2D Tab1;
     public BoxCollider2D Tab2;
 
+    public GameObject _t1;
+    public GameObject _t2;
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && _t1.activeSelf == false && _t2.activeSelf == false)
         {
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
