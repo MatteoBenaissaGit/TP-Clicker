@@ -180,7 +180,7 @@ public class Bat5 : MonoBehaviour
             MajUpgradeClic();
             //anim
             GameObject go = GameObject.Instantiate(PrefabUpgradeEffect, Hit_Pos, false); //genere l'effet
-            go.transform.position = new Vector2(go.transform.position.x + 0.15f, go.transform.position.y +0.2f);
+            go.transform.position = new Vector2(go.transform.position.x + 2f, go.transform.position.y +0.2f);
             Visual.transform.DOComplete(); //complete l'animation précédente pour éviter bug
             Visual.transform.DOPunchScale(new Vector3(0.004f, 0.004f, 0), 0.3f); //animation de hit sur le bat
             //upgrade se fait si assez de clic

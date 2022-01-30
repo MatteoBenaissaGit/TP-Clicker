@@ -47,6 +47,8 @@ public class Bat2 : MonoBehaviour
     public MaisonetteScript maisonette;
     #endregion
 
+    bool dialog_done = false;
+
     //fire
     public bool is_on_fire = false;
 
@@ -60,7 +62,15 @@ public class Bat2 : MonoBehaviour
     {
         if (bat1.level == 3)
         {
-            carrierreniv3_bloc_upgrade.SetActive(false);   
+            carrierreniv3_bloc_upgrade.SetActive(false);
+            if (R_and_P.brick_number >= 250 && dialog_done == false)
+            {
+                _Dialog_box.ActivateBox();
+                _Dialog_box.dialog_number = 8;
+                _Dialog_box.DialogUpdateCall();
+                dialog_done = true;
+                StartCoroutine(_Dialog_box.CloseAfterTimer(4f));
+            }
         }
         maingame.CheckCanBuy(bat2_price_txt, R_and_P.brick_number, value_to_upgrade); //vérifier si achetable pour afficher texte couleur
         //bloqueur si pas assez de habitants pour améliorer
