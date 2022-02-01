@@ -219,7 +219,7 @@ public class Bat1 : MonoBehaviour
             go.transform.position = new Vector2(go.transform.position.x - 0.1f, go.transform.position.y + 0.1f);
             if (level >= 1)
             {
-                go.transform.position = new Vector2(go.transform.position.x, go.transform.position.y + 0.8f);
+                go.transform.position = new Vector2(go.transform.position.x, go.transform.position.y + 0.6f);
             }
             Visual.transform.DOComplete(); //complete l'animation précédente pour éviter bug
             Visual.transform.DOPunchScale(new Vector3(0.004f, 0.004f, 0), 0.3f); //animation de hit sur le bat
