@@ -127,6 +127,8 @@ public class Bat2 : MonoBehaviour
 
     public void UpgradeDone()
     {
+        //shake
+        StartCoroutine(maingame.camerashake.Shake(.2f, .1f));
         clic_bloc.SetActive(false);
         level++; //augmente le niveau
         Bat2Update(Bat2_Upgrades[level]); //recupere les valeurs de l'update
@@ -165,6 +167,8 @@ public class Bat2 : MonoBehaviour
         }
         else if (isUpgrading == true)
         {
+            //shake
+            StartCoroutine(maingame.camerashake.Shake(.1f, .05f));
             maingame.ShowStar(Bat2_Pos, 2f, 2f);
             //upgrade
             lerp = 0;

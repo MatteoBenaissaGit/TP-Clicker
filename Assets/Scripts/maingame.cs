@@ -36,6 +36,8 @@ public class maingame : MonoBehaviour
 
     public GameObject PrefabStar;
 
+    public CameraShake camerashake;
+
     private void Awake()
     {
         //singleton
@@ -81,6 +83,7 @@ public class maingame : MonoBehaviour
             {
                 bat5.Hit(hit.transform);
             }
+            
         }
         //desactive la fleche si le bool arrow1 est false
         if (arrow1 == false)

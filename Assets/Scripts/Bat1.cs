@@ -42,6 +42,7 @@ public class Bat1 : MonoBehaviour
 
     #region upgrade
     public GameObject UpgradeBar;
+    public Transform UpgradeBarPos;
     public TextMeshProUGUI UpgradeBar_Text;
     public bool isUpgrading = false;
     public int upgrade_count_number, upgrade_count_total;
@@ -142,6 +143,8 @@ public class Bat1 : MonoBehaviour
 
     public void UpgradeDone()
     {
+        //shake
+        StartCoroutine(maingame.camerashake.Shake(.2f, .1f));
         clic_bloc.SetActive(false);
         level++; //augmente le niveau
         Bat1Update(Bat1_Upgrades[level]); //recupere les valeurs de l'update
@@ -149,8 +152,8 @@ public class Bat1 : MonoBehaviour
         if (level == 1) //upgrade du niv1
         {
             //position
-            Bat1_Pos.position = new Vector2(Bat1_Pos.position.x, Bat1_Pos.position.y - 0.6f);
-            Bat1_Pos.localScale = new Vector2(Bat1_Pos.localScale.x + 0.2f, Bat1_Pos.localScale.y + 0.2f);
+            Bat1_Pos.position = new Vector2(Bat1_Pos.position.x, Bat1_Pos.position.y - 0f);
+            Bat1_Pos.localScale = new Vector2(Bat1_Pos.localScale.x + 0f, Bat1_Pos.localScale.y + 0f);
             //dialog
             _Dialog_box.dialog_number = 2;
             _Dialog_box.DialogUpdateCall();
@@ -163,11 +166,18 @@ public class Bat1 : MonoBehaviour
             ShowKayou(Bat1_Pos);
             Bat1_clicdamage += 1;
         }
+        if (level == 3)
+        {
+            Bat1_Pos.position = new Vector2(Bat1_Pos.position.x, Bat1_Pos.position.y - 0.3f);
+            UpgradeBarPos.position = new Vector2(UpgradeBarPos.position.x, UpgradeBarPos.position.y - 3f);
+        }
+
         #endregion
     }
 
     public void Hit(Transform Hit_Pos)
     {
+        
         //si pas en mode upgrade
         if (isUpgrading == false && is_on_fire == false)
         {
@@ -203,6 +213,8 @@ public class Bat1 : MonoBehaviour
         }
         else if (isUpgrading == true)
         {
+            //shake
+            StartCoroutine(maingame.camerashake.Shake(.1f, .05f));
             //upgrade
             if (level == 0)
                 maingame.ShowStar(Bat1_Pos, -0.5f, -2f);
