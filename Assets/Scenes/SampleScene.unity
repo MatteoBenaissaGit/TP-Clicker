@@ -1040,7 +1040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7, y: 0.87}
+  m_AnchoredPosition: {x: 0.75, y: 0.64}
   m_SizeDelta: {x: 148.8234, y: 128.6726}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30111473
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bdfbfc6fa2ee070449f98c6618b7e55b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4285,7 +4285,7 @@ Transform:
   m_GameObject: {fileID: 214615368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 811198691}
   - {fileID: 203702979}
@@ -6151,8 +6151,8 @@ MonoBehaviour:
   Bat2_Upgrades:
   - PeopleNeed: 0
     Name: "Maisons (d\xE9truites)"
-    Sprite: {fileID: 21300000, guid: fe7560455966fc944b7ebaa5dada1dd4, type: 3}
-    SpriteUpdate: {fileID: 21300000, guid: fe7560455966fc944b7ebaa5dada1dd4, type: 3}
+    Sprite: {fileID: 21300000, guid: ff82e5d37c142dc42a90d8ed8ac7c487, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: ff82e5d37c142dc42a90d8ed8ac7c487, type: 3}
     Price: 0
     Description: 'Agrandir la maison
 
@@ -10875,8 +10875,8 @@ MonoBehaviour:
   Bat1_Upgrades:
   - PeopleNeed: 0
     Name: "Carri\xE8re (d\xE9truite)"
-    Sprite: {fileID: 21300000, guid: 9155fc30e280f0e4e99f40fa5905df57, type: 3}
-    SpriteUpdate: {fileID: 21300000, guid: 9155fc30e280f0e4e99f40fa5905df57, type: 3}
+    Sprite: {fileID: 21300000, guid: e66c1f524fb608143b73fdb795db05e6, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: e66c1f524fb608143b73fdb795db05e6, type: 3}
     Price: 100
     Description: "R\xE9habiliter la Carri\xE8re  \n\n-> D\xE9blocage de la Carri\xE8re "
     ClicNeed: 10
@@ -11608,7 +11608,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe7560455966fc944b7ebaa5dada1dd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff82e5d37c142dc42a90d8ed8ac7c487, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17601,7 +17601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230258450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.0966887, y: 2.5700092, z: -74.76}
+  m_LocalPosition: {x: 5.796701, y: 2.8700123, z: -74.76}
   m_LocalScale: {x: 0.92739046, y: 0.9847, z: 0.9847}
   m_Children:
   - {fileID: 30111472}
@@ -17694,32 +17694,60 @@ MonoBehaviour:
   Bat4_Upgrades:
   - PeopleNeed: 0
     Name: "Mairie (d\xE9truite)"
-    Sprite: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
-    SpriteUpdate: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
+    Sprite: {fileID: 21300000, guid: bdfbfc6fa2ee070449f98c6618b7e55b, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: bdfbfc6fa2ee070449f98c6618b7e55b, type: 3}
     Price: 0
     Description: "Reconstuire la mairie\n\n-> D\xE9blocage des administrateurs"
     ClicNeed: 0
   - PeopleNeed: 0
     Name: Mairie niv1.
-    Sprite: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
-    SpriteUpdate: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
+    Sprite: {fileID: 21300000, guid: bdfbfc6fa2ee070449f98c6618b7e55b, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: bdfbfc6fa2ee070449f98c6618b7e55b, type: 3}
     Price: 0
     Description: "El\xE9ction d'un conseil municipal\n\n-> production de la ville
       x1.25."
     ClicNeed: 0
   - PeopleNeed: 0
     Name: Mairie niv2.
-    Sprite: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
-    SpriteUpdate: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
+    Sprite: {fileID: 21300000, guid: bdfbfc6fa2ee070449f98c6618b7e55b, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: bdfbfc6fa2ee070449f98c6618b7e55b, type: 3}
     Price: 0
     Description: "R\xE9novation des murs\n\n-> production de la ville x1.25."
     ClicNeed: 0
   - PeopleNeed: 0
     Name: Mairie niv3.
-    Sprite: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
-    SpriteUpdate: {fileID: 21300000, guid: e887b954f14519c48a8accfac611cc78, type: 3}
+    Sprite: {fileID: 21300000, guid: f0e95ea87a6c29b4baae65f919464d40, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: f0e95ea87a6c29b4baae65f919464d40, type: 3}
     Price: 0
-    Description: Null
+    Description: 'Ajout d''une cantine
+
+
+      -> production de la ville x1.25.'
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Mairie niv4.
+    Sprite: {fileID: 21300000, guid: f0e95ea87a6c29b4baae65f919464d40, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: f0e95ea87a6c29b4baae65f919464d40, type: 3}
+    Price: 0
+    Description: "Secr\xE9taire pour la mairie\n\n-> production de la ville x1.25."
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Mairie niv5.
+    Sprite: {fileID: 21300000, guid: f0e95ea87a6c29b4baae65f919464d40, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: f0e95ea87a6c29b4baae65f919464d40, type: 3}
+    Price: 0
+    Description: 'Recrutement d''un gardien de nuit.
+
+
+      -> production de la
+      ville x1.25.'
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Mairie niv6.
+    Sprite: {fileID: 21300000, guid: f0e95ea87a6c29b4baae65f919464d40, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: f0e95ea87a6c29b4baae65f919464d40, type: 3}
+    Price: 0
+    Description: "Am\xE9lioration max"
     ClicNeed: 0
   bat4_price_txt: {fileID: 1489480607}
   bat4_name: {fileID: 1150274926}
@@ -19081,7 +19109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333973539}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 2.33, z: -72.97769}
+  m_LocalPosition: {x: 7.2, y: 2.63, z: -72.97769}
   m_LocalScale: {x: 0, y: 0, z: 0.9847}
   m_Children:
   - {fileID: 711802684}
@@ -20855,7 +20883,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9155fc30e280f0e4e99f40fa5905df57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e66c1f524fb608143b73fdb795db05e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21456,9 +21484,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.91186523, y: -0.9619446}
+  m_AnchoredPosition: {x: -1.9723816, y: -1.9699402}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.49078113, y: 0.4903803}
+  m_Pivot: {x: 0.48017612, y: 0.4803004}
 --- !u!1 &1489480605
 GameObject:
   m_ObjectHideFlags: 0

@@ -216,7 +216,7 @@ public class Bat1 : MonoBehaviour
             //shake
             StartCoroutine(maingame.camerashake.Shake(.1f, .05f));
             //upgrade
-            if (level == 0)
+            if (level >= 0)
                 maingame.ShowStar(Bat1_Pos, -0.5f, -2f);
             else
                 maingame.ShowStar(Bat1_Pos, -0.5f, 0);
@@ -229,7 +229,7 @@ public class Bat1 : MonoBehaviour
             //anim
             GameObject go = GameObject.Instantiate(PrefabUpgradeEffect, Hit_Pos, false); //genere l'effet
             go.transform.position = new Vector2(go.transform.position.x - 0.1f, go.transform.position.y + 0.1f);
-            if (level >= 1)
+            if (level >= 3)
             {
                 go.transform.position = new Vector2(go.transform.position.x, go.transform.position.y + 0.6f);
             }
