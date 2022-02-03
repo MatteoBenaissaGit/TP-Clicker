@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class maingame : MonoBehaviour
 {
+    //son
+    public SoundManager soundmanager;
+
     public GameObject PrefabArrowTuto;
     [HideInInspector] public bool arrow1 = true;
 
@@ -29,6 +32,8 @@ public class maingame : MonoBehaviour
     [SerializeField] Collider2D BAT4_ref;
     public Bat5 bat5;
     [SerializeField] Collider2D BAT5_ref;
+    public Bat6 bat6;
+    [SerializeField] Collider2D BAT6_ref;
 
     public static maingame Instance;
 
@@ -65,25 +70,34 @@ public class maingame : MonoBehaviour
             //action si on clic sur un batiment
             if (hit.collider == BAT1_ref)
             {
+                soundmanager.ClicCarrière();
                 bat1.Hit(hit.transform);
             }
             if (hit.collider == BAT2_ref)
             {
+                soundmanager.ClicCarrière();
                 bat2.Hit(hit.transform);
             }
             if (hit.collider == BAT3_ref)
             {
+                soundmanager.ClicCarrière();
                 bat3.Hit(hit.transform);
             }
             if (hit.collider == BAT4_ref)
             {
+                soundmanager.ClicCarrière();
                 bat4.Hit(hit.transform);
             }
             if (hit.collider == BAT5_ref)
             {
+                soundmanager.ClicCarrière();
                 bat5.Hit(hit.transform);
             }
-            
+            if (hit.collider == BAT6_ref)
+            {
+                soundmanager.ClicCarrière();
+                bat6.Hit(hit.transform);
+            }
         }
         //desactive la fleche si le bool arrow1 est false
         if (arrow1 == false)
@@ -188,6 +202,7 @@ public class maingame : MonoBehaviour
 
     public void GoToMenu()
     {
+        soundmanager.ClicUI();
         Time.timeScale = 1;
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }

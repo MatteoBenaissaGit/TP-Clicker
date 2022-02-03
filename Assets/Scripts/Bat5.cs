@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Bat5 : MonoBehaviour
 {
+    public SoundManager soundmanager;
+
     #region references d'objets/script
     public maingame maingame;
     public Bat1 bat1;
@@ -106,6 +108,8 @@ public class Bat5 : MonoBehaviour
     {
         if (R_and_P.brick_number >= value_to_upgrade)
         {
+            soundmanager.ClicAchats();
+
             R_and_P.brick_number -= value_to_upgrade; //enleve le prix au nb de brick
             //met en mode upgrade
             isUpgrading = true;    //bool qui dit qu'on est en mode upgrade
@@ -130,6 +134,7 @@ public class Bat5 : MonoBehaviour
 
     public void UpgradeDone()
     {
+        soundmanager.SoundUpgrade();
         //shake
         StartCoroutine(maingame.camerashake.Shake(.2f, .1f));
         clic_bloc.SetActive(false);
@@ -174,7 +179,7 @@ public class Bat5 : MonoBehaviour
         {
             //shake
             StartCoroutine(maingame.camerashake.Shake(.1f, .05f));
-            maingame.ShowStar(Bat5_Pos,-7f,-2f);
+            maingame.ShowStar(Bat5_Pos,10f,4f);
             //upgrade
             lerp = 0;
             fill_before = (float)upgrade_count_number / (float)upgrade_count_total;
@@ -255,6 +260,7 @@ public class Bat5 : MonoBehaviour
 
     public void optionlaunch()
     {
+        soundmanager.ClicUI();
         if (menuoption.activeSelf == false)
         {
             menuoption.SetActive(true);

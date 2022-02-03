@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Buttons : MonoBehaviour
 {
+    public SoundManager soundmanager;
     public ScriptArrowTuto _arrow1; //fleche tuto ref
     #region tabs
     [SerializeField] GameObject tab1;
@@ -16,6 +17,7 @@ public class Buttons : MonoBehaviour
 
     public void Click1() //active l'écran 1 
     {
+        soundmanager.ClicUI();
         if (actualselect != 1)
         {
             //set des actifs/non actifs
@@ -76,7 +78,7 @@ public class Buttons : MonoBehaviour
     }
     public void Click2() //active l'écran 2
     {
-        
+        soundmanager.ClicUI();
         if (actualselect != 2)
         {
             //set des actifs/non actifs

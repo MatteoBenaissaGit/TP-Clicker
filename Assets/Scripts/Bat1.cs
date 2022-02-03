@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Bat1 : MonoBehaviour
 {
+    public SoundManager soundmanager;
+
     #region references d'objets/script
     public maingame maingame;
     public Transform Bat1_Pos;
@@ -107,6 +109,8 @@ public class Bat1 : MonoBehaviour
     {
         if (R_and_P.brick_number >= value_to_upgrade)
         {
+            soundmanager.ClicAchats();
+
             R_and_P.brick_number -= value_to_upgrade; //enleve le prix au nb de brick
             //met en mode upgrade
             isUpgrading = true;    //bool qui dit qu'on est en mode upgrade
@@ -143,6 +147,7 @@ public class Bat1 : MonoBehaviour
 
     public void UpgradeDone()
     {
+        soundmanager.SoundUpgrade();
         //shake
         StartCoroutine(maingame.camerashake.Shake(.2f, .1f));
         clic_bloc.SetActive(false);
@@ -151,9 +156,6 @@ public class Bat1 : MonoBehaviour
         #region action selon le niveau
         if (level == 1) //upgrade du niv1
         {
-            //position
-            Bat1_Pos.position = new Vector2(Bat1_Pos.position.x, Bat1_Pos.position.y - 0f);
-            Bat1_Pos.localScale = new Vector2(Bat1_Pos.localScale.x + 0f, Bat1_Pos.localScale.y + 0f);
             //dialog
             _Dialog_box.dialog_number = 2;
             _Dialog_box.DialogUpdateCall();
@@ -169,7 +171,7 @@ public class Bat1 : MonoBehaviour
         if (level == 3)
         {
             Bat1_Pos.position = new Vector2(Bat1_Pos.position.x, Bat1_Pos.position.y - 0.3f);
-            UpgradeBarPos.position = new Vector2(UpgradeBarPos.position.x, UpgradeBarPos.position.y - 3f);
+            UpgradeBarPos.position = new Vector2(UpgradeBarPos.position.x, UpgradeBarPos.position.y - 0.6f);
         }
 
         #endregion
@@ -231,7 +233,7 @@ public class Bat1 : MonoBehaviour
             go.transform.position = new Vector2(go.transform.position.x - 0.1f, go.transform.position.y + 0.1f);
             if (level >= 3)
             {
-                go.transform.position = new Vector2(go.transform.position.x, go.transform.position.y + 0.6f);
+                go.transform.position = new Vector2(go.transform.position.x, go.transform.position.y - 0.4f);
             }
             Visual.transform.DOComplete(); //complete l'animation précédente pour éviter bug
             Visual.transform.DOPunchScale(new Vector3(0.004f, 0.004f, 0), 0.3f); //animation de hit sur le bat
