@@ -10,6 +10,8 @@ public class FireScript : MonoBehaviour
     public Collider2D firecoll;
     public Bat1 bat1;
 
+    public SoundManager soundmanager;
+
     private void Update()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
@@ -20,6 +22,7 @@ public class FireScript : MonoBehaviour
             //action si on clic sur un batiment
             if (hit.collider == firecoll && bat1.is_on_fire == true)
             {
+                soundmanager.ClicFire();
                 _fire.DOComplete();
                 _fire.transform.DOScale(new Vector3(_fire.transform.localScale.x - 0.5f, _fire.transform.localScale.y - 0.5f, 0), 0.2f); //réduit la taille
                 bat1.transform.DOPunchScale(new Vector3(-0.02f, -0.02f, 0), 0.3f);
@@ -28,6 +31,7 @@ public class FireScript : MonoBehaviour
                     bat1.FireEnd();
                     if (tuto_done == false)
                     {
+                        soundmanager.SoundUpgrade();
                         //dialog
                         bat1._Dialog_box.dialog_number= 6;
                         bat1._Dialog_box.DialogUpdateCall();

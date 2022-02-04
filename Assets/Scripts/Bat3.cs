@@ -67,7 +67,7 @@ public class Bat3 : MonoBehaviour
         if (R_and_P.brick_augmentation >= 10 && R_and_P.brick_number > 250 && dialog_done == false)
         {
             _Dialog_box.ActivateBox();
-            _Dialog_box.dialog_number = 9;
+            _Dialog_box.dialog_number = 8;
             _Dialog_box.DialogUpdateCall();
             dialog_done = true;
             StartCoroutine(_Dialog_box.CloseAfterTimer(4f));
@@ -251,6 +251,7 @@ public class Bat3 : MonoBehaviour
 
     public void AddMacon()
     {
+        soundmanager.ClicAchats();
         R_and_P.brick_augmentation = (int)(R_and_P.brick_augmentation * 1.5);
         number_of_employee++;
         number_employee_text.text = number_of_employee.ToString();

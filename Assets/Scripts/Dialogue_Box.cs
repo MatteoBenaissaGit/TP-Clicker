@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Dialogue_Box : MonoBehaviour
 {
     public Transform _box;
+    public SoundManager soundmanager;
 
     //dialogues update
     public TextMeshProUGUI _desc;
@@ -39,6 +40,7 @@ public class Dialogue_Box : MonoBehaviour
 
     public void ActivateBox() //montre la boite de dialogue 
     {
+        soundmanager.TextPopUp();
         _box.DOComplete();
         _box.DOScale(0, 0.5f);
         _box.DOComplete();
@@ -54,6 +56,7 @@ public class Dialogue_Box : MonoBehaviour
     }
     public void BumpBox() //ferme la boite de dialogue 
     {
+        soundmanager.TextPopUp();
         _box.DOComplete();
         _box.DOPunchScale(new Vector3(0.15f, 0.15f, 0f), 0.5f);
     }

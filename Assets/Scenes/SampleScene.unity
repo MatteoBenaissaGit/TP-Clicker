@@ -3325,7 +3325,7 @@ RectTransform:
   m_GameObject: {fileID: 146834724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 130, y: 130, z: 1}
   m_Children:
   - {fileID: 942053974}
   - {fileID: 796484175}
@@ -3334,8 +3334,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000005126, y: 0.077027}
-  m_SizeDelta: {x: 17.723, y: 8.2212}
+  m_AnchoredPosition: {x: 3.5752, y: -0.5606}
+  m_SizeDelta: {x: 18.683, y: 8.6452}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146834726
 MonoBehaviour:
@@ -6225,7 +6225,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &273229964
 Canvas:
   m_ObjectHideFlags: 0
@@ -6235,7 +6235,7 @@ Canvas:
   m_GameObject: {fileID: 273229961}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -6254,9 +6254,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273229961}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 146834725}
   - {fileID: 1486250204}
@@ -6270,9 +6270,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -337.92395, y: -216.35023}
-  m_SizeDelta: {x: 17.7231, y: 8.0672}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &275983659
 GameObject:
   m_ObjectHideFlags: 0
@@ -8843,16 +8843,16 @@ RectTransform:
   m_GameObject: {fileID: 448177294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 130, y: 130, z: 130}
   m_Children: []
   m_Father: {fileID: 273229965}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.976471, y: 2.8405457}
+  m_AnchoredPosition: {x: 666.6215, y: 522.71954}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.7520553, y: 0.5311176}
+  m_Pivot: {x: 0.77106744, y: 0.5237275}
 --- !u!1 &452535905
 GameObject:
   m_ObjectHideFlags: 0
@@ -10959,7 +10959,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.476
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12693,7 +12693,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv4."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12703,7 +12703,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv4."
+    Name: "Carri\xE8re niv5."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12713,7 +12713,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv6."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12723,7 +12723,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv7."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12733,7 +12733,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv8."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12743,7 +12743,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv9."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12753,7 +12753,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv10."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12763,7 +12763,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv11."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12773,7 +12773,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv12."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12783,7 +12783,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv13."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -12793,7 +12793,7 @@ MonoBehaviour:
       + 1 brique/clic'
     ClicNeed: 30
   - PeopleNeed: 0
-    Name: "Carri\xE8re niv3."
+    Name: "Carri\xE8re niv14."
     Sprite: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: dcd3530f5e0f1e54d96137c35ef03545, type: 3}
     Price: 29
@@ -15824,6 +15824,10 @@ PrefabInstance:
       propertyPath: bat1_pos
       value: 
       objectReference: {fileID: 717452274}
+    - target: {fileID: 7444311097683284333, guid: edea71a11b8f1c848aa00e22c2b98063, type: 3}
+      propertyPath: soundmanager
+      value: 
+      objectReference: {fileID: 1123934621}
     - target: {fileID: 7444311097683284334, guid: edea71a11b8f1c848aa00e22c2b98063, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16069,7 +16073,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.53
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -19686,9 +19690,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149796931}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 278.22}
-  m_LocalScale: {x: 0.007200153, y: 0.007200153, z: 0.007200153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 918729017}
   - {fileID: 1530167514}
@@ -19697,9 +19701,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.7037085, y: -0.09641668}
-  m_SizeDelta: {x: 2435.9998, y: 1125}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1149796933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19739,7 +19743,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1149796935
 Canvas:
   m_ObjectHideFlags: 0
@@ -19749,7 +19753,7 @@ Canvas:
   m_GameObject: {fileID: 1149796931}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -19759,7 +19763,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 56
   m_TargetDisplay: 0
 --- !u!1 &1150274924
 GameObject:
@@ -20286,7 +20290,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.499
+  m_Volume: 0.221
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -21053,13 +21057,76 @@ MonoBehaviour:
     ClicNeed: 0
   - PeopleNeed: 0
     Name: Ecole niv1.
-    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
-    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Sprite: {fileID: 21300000, guid: 870ac8225fcdad4438d489936486efb6, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 870ac8225fcdad4438d489936486efb6, type: 3}
     Price: 0
-    Description: "R\xE9habiliter l'\xE9cole\n\n-> D\xE9blocage de l'instituteur"
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25"
     ClicNeed: 0
   - PeopleNeed: 0
     Name: Ecole niv2.
+    Sprite: {fileID: 21300000, guid: 870ac8225fcdad4438d489936486efb6, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 870ac8225fcdad4438d489936486efb6, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv3.
+    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv4.
+    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv5.
+    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv6.
+    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv7.
+    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv8.
+    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv9.
+    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv10.
+    Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
+    Price: 0
+    Description: "Ajout d'une classe\n\n-> arriv\xE9e d'habitant x 1.25\n"
+    ClicNeed: 0
+  - PeopleNeed: 0
+    Name: Ecole niv10.
     Sprite: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
     SpriteUpdate: {fileID: 21300000, guid: 184b25c6d7ea0d04a99814ab8898079c, type: 3}
     Price: 0
@@ -24827,16 +24894,16 @@ RectTransform:
   m_GameObject: {fileID: 1486250203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 130, y: 130, z: 130}
   m_Children: []
   m_Father: {fileID: 273229965}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.9723816, y: -1.9699402}
+  m_AnchoredPosition: {x: -132.61725, y: -185.42001}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.48017612, y: 0.4803004}
+  m_Pivot: {x: 0.47012615, y: 0.4661892}
 --- !u!1 &1489480605
 GameObject:
   m_ObjectHideFlags: 0
@@ -27042,16 +27109,16 @@ RectTransform:
   m_GameObject: {fileID: 1655861304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 130, y: 130, z: 130}
   m_Children: []
   m_Father: {fileID: 273229965}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.1076355, y: -2.6968384}
+  m_AnchoredPosition: {x: -754.94226, y: -298.79678}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.4288235, y: 0.4730314}
+  m_Pivot: {x: 0.3712975, y: 0.4502547}
 --- !u!1 &1658982734
 GameObject:
   m_ObjectHideFlags: 0
@@ -31311,7 +31378,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c94640910b937db47a1dadde68474258, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.063
+  m_Volume: 0.026
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -32004,16 +32071,16 @@ RectTransform:
   m_GameObject: {fileID: 2087679455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 130, y: 130, z: 130}
   m_Children: []
   m_Father: {fileID: 273229965}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2714844, y: 2.5229492}
+  m_AnchoredPosition: {x: 218.97578, y: 259.2604}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5126147, y: 0.5252294}
+  m_Pivot: {x: 0.5293611, y: 0.5449787}
 --- !u!1 &2093087877
 GameObject:
   m_ObjectHideFlags: 0
@@ -32703,16 +32770,16 @@ RectTransform:
   m_GameObject: {fileID: 2118509916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 130, y: 130, z: 130}
   m_Children: []
   m_Father: {fileID: 273229965}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.223877, y: -1.9004822}
+  m_AnchoredPosition: {x: 448.37424, y: -199.29466}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.54213864, y: 0.48099512}
+  m_Pivot: {x: 0.57630396, y: 0.465811}
 --- !u!1 &2119364971
 GameObject:
   m_ObjectHideFlags: 0
@@ -32738,16 +32805,16 @@ RectTransform:
   m_GameObject: {fileID: 2119364971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 130, y: 130, z: 130}
   m_Children: []
   m_Father: {fileID: 273229965}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.8685913, y: 3.2003174}
+  m_AnchoredPosition: {x: -1000.45557, y: 356.2386}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.6336046, y: 0.5347154}
+  m_Pivot: {x: 0.5570976, y: 0.56187207}
 --- !u!1 &2124917000
 GameObject:
   m_ObjectHideFlags: 0
@@ -33315,6 +33382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _box: {fileID: 2146407486}
+  soundmanager: {fileID: 1123934621}
   _desc: {fileID: 1781943284}
   _name: {fileID: 1420281323}
   _image: {fileID: 785564409}

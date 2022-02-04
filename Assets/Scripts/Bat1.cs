@@ -283,6 +283,7 @@ public class Bat1 : MonoBehaviour
             StartCoroutine(_Dialog_box.CloseAfterTimer(3.5f)); //dialogbox se ferme
             StartCoroutine(maingame.FireLauncher(10)); //fire après la fin du premier tuto
         }
+        soundmanager.ClicAchats();
         R_and_P.brick_augmentation += 1; //ajoute un ouvrier
         number_of_employee++;
         number_employee_text.text = number_of_employee.ToString(); //ajoute un employé sur l'etiquette

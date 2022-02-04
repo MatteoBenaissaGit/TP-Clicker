@@ -257,6 +257,7 @@ public class Bat4 : MonoBehaviour
 
     public void AddMacon()
     {
+        soundmanager.ClicAchats();
         R_and_P.brick_augmentation = (int)(R_and_P.brick_augmentation * 1.05);
         R_and_P.people_augmentation = (int)(R_and_P.brick_augmentation * 1.05);
         number_of_employee++;

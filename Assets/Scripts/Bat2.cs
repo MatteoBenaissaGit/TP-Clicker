@@ -68,7 +68,7 @@ public class Bat2 : MonoBehaviour
             if (R_and_P.brick_number >= 250 && dialog_done == false)
             {
                 _Dialog_box.ActivateBox();
-                _Dialog_box.dialog_number = 8;
+                _Dialog_box.dialog_number = 7;
                 _Dialog_box.DialogUpdateCall();
                 dialog_done = true;
                 StartCoroutine(_Dialog_box.CloseAfterTimer(4f));

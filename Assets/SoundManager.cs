@@ -50,5 +50,11 @@ public class SoundManager : MonoBehaviour
         textmanager.clip = textpop;
         textmanager.Play();
     }
+
+    public void ClicFire()
+    {
+        textmanager.clip = textpop;
+        textmanager.Play();
+    }
 }
 
