@@ -69,9 +69,5 @@ public class SoundManager : MonoBehaviour
         firemusic.clip = incendie;
         firemusic.Play();
     }
-    public void FireSoundStop()
-    {
-        firemusic.Stop();
-    }
 }
 

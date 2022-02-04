@@ -143,7 +143,6 @@ public class maingame : MonoBehaviour
             if (bat1.isUpgrading == false) //empeche de bruler un bat qui upgrade
             {
                 soundmanager.FireExplosion();
-                soundmanager.FireSound();
                 fire.transform.position = new Vector3(bat1.transform.position.x, bat1.transform.position.y, 0);
                 fire.transform.DOScale(new Vector3(4, 4, 1), 0.4f);
                 bat1.FireStart();
@@ -165,6 +164,7 @@ public class maingame : MonoBehaviour
             {
                 if (bat1.isUpgrading == false) //empeche de bruler un bat qui upgrade
                 {
+                    soundmanager.FireExplosion();
                     fire.transform.position = new Vector3(bat1.transform.position.x + 1f, bat1.transform.position.y + 0.5f, 0);
                     fire.transform.DOScale(new Vector3(4, 4, 1), 0.4f);
                     bat1.FireStart();
@@ -179,10 +179,9 @@ public class maingame : MonoBehaviour
 
     public void FireEnd()
     {
-        soundmanager.FireSoundStop();
         //destroy le feu
         fire.transform.DOScale(new Vector3(0, 0, 1), 0.4f);
-        StartCoroutine(FireLauncher(Random.Range(90, 180))); //fire relaunch
+        StartCoroutine(FireLauncher(Random.Range(90, 120))); //fire relaunch
 
     }
 
