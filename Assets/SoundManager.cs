@@ -23,6 +23,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource achatsmanager;
     public AudioSource textmanager;
     public AudioSource upgrademanager;
+    public AudioSource firemusic;
 
     public void ClicCarrière()
     {
@@ -55,6 +56,22 @@ public class SoundManager : MonoBehaviour
     {
         textmanager.clip = textpop;
         textmanager.Play();
+    }
+
+    public void FireExplosion()
+    {
+        explosionmanager.clip = explosion;
+        explosionmanager.Play();
+    }
+
+    public void FireSound()
+    {
+        firemusic.clip = incendie;
+        firemusic.Play();
+    }
+    public void FireSoundStop()
+    {
+        firemusic.Stop();
     }
 }
 

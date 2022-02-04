@@ -67,7 +67,7 @@ public class Bat4 : MonoBehaviour
     void Update()
     {
         //tuto launch & bloqueur
-        if (R_and_P.people_number >= 200 && bat2.level >= 7)
+        if (R_and_P.people_number >= 200 && bat2.level >= 8)
         {
             if (dialog_done == false && R_and_P.brick_number >= 250)
             {

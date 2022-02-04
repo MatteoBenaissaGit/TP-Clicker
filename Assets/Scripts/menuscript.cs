@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class menuscript : MonoBehaviour
 {
+    public SoundManager sound;
+
     public Transform credits;
     public Collider2D window;
     public Transform _window;
@@ -30,6 +32,7 @@ public class menuscript : MonoBehaviour
             //action si on clic sur un batiment
             if (hit.collider == window)
             {
+                sound.TextPopUp();
                 PunchWindow();
             }
         }
@@ -67,6 +70,7 @@ public class menuscript : MonoBehaviour
 
     public void OpenCredits()
     {
+        sound.ClicUI();
         credits.DOComplete();
         credits.DOScaleX(1, 0.2f);
         credits.DOScaleY(0.2f, 0.4f);
@@ -81,6 +85,7 @@ public class menuscript : MonoBehaviour
     }
     public void CloseCredits()
     {
+        sound.ClicUI();
         credits.DOComplete();
         credits.DOScaleX(1f, 0.2f);
         credits.DOScaleY(0.2f, 0.2f);
@@ -95,6 +100,7 @@ public class menuscript : MonoBehaviour
 
     public void GoToGame()
     {
+        sound.ClicUI();
         fade_black = true;
         StartCoroutine(TextShow());
     }
