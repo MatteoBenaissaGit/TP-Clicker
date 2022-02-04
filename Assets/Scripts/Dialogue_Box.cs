@@ -44,13 +44,13 @@ public class Dialogue_Box : MonoBehaviour
         _box.DOComplete();
         _box.DOScale(0, 0.5f);
         _box.DOComplete();
-        _box.DOScale(1, 0.5f);
+        _box.DOScale(125, 0.5f);
     }
 
     public void DesactivateBox() //ferme la boite de dialogue 
     {
         _box.DOComplete();
-        _box.DOScale(1, 0.5f);
+        _box.DOScale(0, 0.5f);
         _box.DOComplete();
         _box.DOScale(0, 0.3f);
     }
@@ -58,7 +58,7 @@ public class Dialogue_Box : MonoBehaviour
     {
         soundmanager.TextPopUp();
         _box.DOComplete();
-        _box.DOPunchScale(new Vector3(0.15f, 0.15f, 0f), 0.5f);
+        _box.DOPunchScale(new Vector3(10f, 10f, 0f), 0.5f);
     }
 
     public void DialogUpdate(DialogInfos DialogInfos) //modifier visuelement la box
